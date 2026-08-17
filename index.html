@@ -1,1 +1,1121 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">eSLOG | Autonomous Supply Chain Venture Capital</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-white': '#F8F9FA',
+                        'industrial-dark': '#23262A',
+                        'industrial-muted': '#85888B',
+                        'grid-border': '#23262A',
+                        'grid-light': '#E2E4E8',
+                        'accent-blue': '#10A0DE',
+                        'accent-amber': '#F3A628',
+                        'accent-orange': '#10A0DE', /* Backwards compatibility */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & JetBrains Mono for Swiss Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            border-radius: 0px !important; /* Strict zero radius for Bauhaus precision */
+        }
+        body {
+            background-color: #F8F9FA;
+            color: #23262A;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Swiss Grid Divider Lines */
+        .grid-line-b { border-bottom: 1px solid #23262A; }
+        .grid-line-t { border-top: 1px solid #23262A; }
+        .grid-line-r { border-right: 1px solid #23262A; }
+        .grid-line-l { border-left: 1px solid #23262A; }
+        
+        .grid-light-b { border-bottom: 1px solid #E2E4E8; }
+        .grid-light-r { border-right: 1px solid #E2E4E8; }
 
+        /* Mechanical Micro-interactions */
+        .mech-hover {
+            transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s ease, border-color 0.15s ease;
+        }
+        .mech-hover:hover {
+            transform: translateX(4px);
+            background-color: #23262A;
+            color: #F8F9FA;
+        }
+        .mech-hover:hover .mech-accent {
+            color: #10A0DE;
+        }
+        
+        /* Industrial List Item Hover */
+        .dash-row {
+            transition: all 0.15s ease-in-out;
+        }
+        .dash-row:hover {
+            background-color: #23262A;
+            color: #F8F9FA;
+        }
+        .dash-row:hover .dash-meta {
+            color: #10A0DE;
+        }
+        .dash-row:hover .dash-border {
+            border-color: #10A0DE;
+        }
+
+        /* FAQ Accordion */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-content.open {
+            max-height: 400px;
+            transition: max-height 0.25s ease-in-out;
+        }
+
+        /* Crosshair Target Symbol */
+        .crosshair::before {
+            content: '';
+            margin-right: 0px;
+        }
+
+        /* Scroll Reveal Animations (Swiss Industrial Ease: Vertical & Horizontal) */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-36px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(36px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-visible {
+            opacity: 1 !important;
+            transform: translateY(0) translateX(0) !important;
+        }
+        
+        /* Stagger Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-warm-white text-industrial-dark antialiased flex flex-col min-h-screen selection:bg-accent-blue selection:text-white">
+
+    <!-- Navigation Header -->
+    <nav class="w-full bg-warm-white sticky top-0 z-50 grid-line-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-stretch h-20">
+                <!-- Logo Block Left (Vector eSLOG SVG Brand Icon) -->
+                <div class="flex items-center grid-line-r pr-6 my-auto h-full flex-none">
+                    <a href="#" class="flex items-center space-x-3 group">
+                        <!-- Precise SVG recreation of official eSLOG isometric logo -->
+                        <svg class="h-10 w-auto" viewBox="0 0 510 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Left Isometric Face (Yellow/Amber #F3A628) -->
+                            <path d="M15 42 L80 10 L80 105 L15 125 Z" fill="#F3A628"/>
+                            <path d="M32 50 L68 28 L68 98 L32 110 Z" fill="#EAEBED"/>
+                            
+                            <!-- Top Isometric Face (Light Blue #10A0DE) -->
+                            <path d="M80 10 L145 38 L80 68 L15 42 Z" fill="#10A0DE"/>
+                            <!-- E-lines on Top Face -->
+                            <path d="M35 43 L80 22 L125 41 L80 62 Z" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+                            <path d="M55 42 L80 30 L105 41" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+
+                            <!-- Right Isometric Face (Industrial Gray #85888B) -->
+                            <path d="M80 68 L145 38 L145 115 L80 105 Z" fill="#FFFFFF" stroke="#85888B" stroke-width="6"/>
+                            <!-- S-line on Right Face -->
+                            <path d="M92 78 L133 60 L133 80 L92 98 L92 102 L133 88" fill="none" stroke="#85888B" stroke-width="6" stroke-linecap="square"/>
+
+                            <!-- Text: e (Cyan Blue #10A0DE) -->
+                            <text x="170" y="98" font-family="'Inter', 'Helvetica Neue', sans-serif" font-weight="500" font-size="95" fill="#10A0DE">e</text>
+                            
+                            <!-- Text: SLOG (Industrial Gray #85888B) -->
+                            <text x="222" y="98" font-family="'Inter', 'Helvetica Neue', sans-serif" font-weight="300" font-size="92" fill="#85888B" letter-spacing="-1">SLOG</text>
+
+                            <!-- Subtitle Text -->
+                            <text x="172" y="128" font-family="'Inter', 'Arial', sans-serif" font-weight="600" font-size="19" fill="#9DA0A5" letter-spacing="3.2">END SOLUTIONS LOGISTICS</text>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Menu (Swiss Equal-Grid Alignment) -->
+                <div class="hidden lg:flex flex-1 items-stretch font-mono text-xs uppercase tracking-wider">
+                    <a href="#about" data-i18n="nav_about" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Über uns</a>
+                    <a href="#focus" data-i18n="nav_services" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Fokusbereiche</a>
+                    <a href="#portfolio" data-i18n="nav_portfolio" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Portfolio</a>
+                    <a href="#ecosystem" data-i18n="nav_resources" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Ökosystem</a>
+                    <a href="#faq" data-i18n="nav_faq" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">FAQ</a>
+                    
+                    <!-- Language Switcher Desktop -->
+                    <div class="flex items-center grid-line-l px-4 flex-none">
+                        <div class="flex border border-industrial-dark text-xs font-mono">
+                            <button id="lang-de" onclick="changeLanguage('de')" class="px-2.5 py-1.5 bg-accent-blue text-white font-bold transition-colors">DE</button>
+                            <button id="lang-en" onclick="changeLanguage('en')" class="px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors">EN</button>
+                            <button id="lang-zh" onclick="changeLanguage('zh')" class="px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors">繁中</button>
+                        </div>
+                    </div>
+
+                    <a href="#contact" data-i18n="nav_contact" class="flex-none flex items-center px-6 bg-industrial-dark text-warm-white hover:bg-accent-blue transition-colors font-bold grid-line-l">
+                        Pitch einreichen <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Header Right Controls -->
+                <div class="lg:hidden flex items-center space-x-3">
+                    <!-- Language Switcher Mobile Quick Toggle -->
+                    <div class="flex border border-industrial-dark text-xs font-mono">
+                        <button id="lang-de-mobile" onclick="changeLanguage('de')" class="px-2 py-1 bg-accent-blue text-white font-bold">DE</button>
+                        <button id="lang-en-mobile" onclick="changeLanguage('en')" class="px-2 py-1 text-industrial-dark border-l border-industrial-dark">EN</button>
+                        <button id="lang-zh-mobile" onclick="changeLanguage('zh')" class="px-2 py-1 text-industrial-dark border-l border-industrial-dark">繁中</button>
+                    </div>
+                    <button id="mobile-menu-btn" class="p-3 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-industrial-dark bg-warm-white font-mono text-xs uppercase">
+            <a href="#about" data-i18n="nav_about" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Über uns</a>
+            <a href="#focus" data-i18n="nav_services" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Fokusbereiche</a>
+            <a href="#portfolio" data-i18n="nav_portfolio" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Portfolio</a>
+            <a href="#ecosystem" data-i18n="nav_resources" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Ökosystem</a>
+            <a href="#faq" data-i18n="nav_faq" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">FAQ</a>
+            <a href="#contact" data-i18n="nav_contact" class="block py-4 px-6 bg-industrial-dark text-warm-white font-bold">Pitch einreichen</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Bauhaus Asymmetric Grid) -->
+    <section id="home" class="relative grid-line-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-12 lg:py-20 flex flex-col justify-between">
+                
+                <!-- Main Thesis Block (Full Width) -->
+                <div class="reveal-on-scroll">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-industrial-dark" data-i18n="hero_title">
+                        Finanzierung der<br>autonomen Lieferkette<br>
+                        <span class="text-accent-blue">Präzision für KI & Robotik</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-industrial-dark/80 max-w-3xl leading-relaxed font-normal mb-10" data-i18n="hero_desc">
+                        eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-6 grid-line-t reveal-on-scroll delay-100">
+                    <a href="#contact" data-i18n="hero_btn_submit" class="px-8 py-4 bg-industrial-dark text-warm-white font-mono text-xs uppercase tracking-wider font-bold border border-industrial-dark hover:bg-accent-blue hover:border-accent-blue transition-colors flex items-center justify-center">
+                        Pitch-Vorschlag einreichen <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                    <a href="#about" data-i18n="hero_btn_about" class="px-8 py-4 bg-transparent text-industrial-dark font-mono text-xs uppercase tracking-wider font-bold border border-industrial-dark hover:bg-industrial-dark hover:text-warm-white transition-colors flex items-center justify-center">
+                        Investitionsphilosophie
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Industrial Metrics Bar (4-Column Precision Spec Sheet) -->
+    <section class="bg-industrial-dark text-warm-white grid-line-b">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 font-mono">
+                <div class="p-6 border-r border-b md:border-b-0 border-warm-white/20 reveal-left delay-100">
+                    <div class="text-3xl font-black font-sans">4+</div>
+                    <div class="text-xs text-warm-white/60 mt-1 uppercase" data-i18n="stat_1_lbl">Strategische Hubs</div>
+                </div>
+                <div class="p-6 border-b md:border-b-0 md:border-r border-warm-white/20 reveal-left delay-200">
+                    <div class="text-3xl font-black font-sans">100%</div>
+                    <div class="text-xs text-warm-white/60 mt-1 uppercase" data-i18n="stat_2_lbl">Fokus Logistik & KI</div>
+                </div>
+                <div class="p-6 border-r border-warm-white/20 reveal-right delay-300">
+                    <div class="text-3xl font-black font-sans">END-TO-END</div>
+                    <div class="text-xs text-warm-white/60 mt-1 uppercase" data-i18n="stat_3_lbl">Lieferketten-Skalierung</div>
+                </div>
+                <div class="p-6 reveal-right delay-400">
+                    <div class="text-3xl font-black font-sans">SEED - B</div>
+                    <div class="text-xs text-warm-white/60 mt-1 uppercase" data-i18n="stat_4_lbl">Investitionsphasen</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section (Engineering Thesis) -->
+    <section id="about" class="py-20 grid-line-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Left Title Column (Horizontal Fade-In Left) -->
+                <div class="lg:col-span-4 reveal-left">
+                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-4 crosshair" data-i18n="tag_about">ÜBER UNS</div>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-normal leading-snug break-words text-industrial-dark" data-i18n="about_heading">
+                        Neudefinition von Investitionen in Logistiktechnologie
+                    </h2>
+                </div>
+
+                <!-- Right Content Column (Horizontal Fade-In Right) -->
+                <div class="lg:col-span-8 space-y-8 reveal-right delay-200">
+                    <p class="text-lg text-industrial-dark/90 leading-relaxed font-normal" data-i18n="about_p1">
+                        Künstliche Intelligenz und Robotik transformieren die physische Logistik grundlegend. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.
+                    </p>
+                    <p class="text-base text-industrial-muted leading-relaxed" data-i18n="about_p2">
+                        Über Risikokapital hinaus bieten wir direkten Zugang zu europäischen Testumgebungen, Komponenten-Lieferketten und automatisierter Fertigungsinfrastruktur.
+                    </p>
+
+                    <!-- Industrial Spec List for Features -->
+                    <div class="pt-6 grid-line-t space-y-6 font-mono text-xs">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start p-4 bg-white border border-industrial-dark mech-hover reveal-left delay-300">
+                            <div class="md:col-span-3 text-accent-blue font-bold tracking-wider">TECH_DRIVEN</div>
+                            <div class="md:col-span-9 font-sans text-sm">
+                                <div class="font-bold uppercase text-industrial-dark mb-1" data-i18n="about_f1_title">Fokussierung auf Kerntechnologie</div>
+                                <div class="text-industrial-muted" data-i18n="about_f1_desc">Kommerzialisierung von KI-Vision, autonomer Navigation (SLAM) und Roboter-Handhabungssystemen.</div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start p-4 bg-white border border-industrial-dark mech-hover reveal-right delay-400">
+                            <div class="md:col-span-3 text-accent-amber font-bold tracking-wider">INTEGRATION</div>
+                            <div class="md:col-span-9 font-sans text-sm">
+                                <div class="font-bold uppercase text-industrial-dark mb-1" data-i18n="about_f2_title">End-to-End Lösungen</div>
+                                <div class="text-industrial-muted" data-i18n="about_f2_desc">Nahtlose Einbindung in bestehende Enterprise-Lieferketten zur drastischen Senkung operativer Gesamtkosten.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services & Focus Areas (Industrial Dashboard List Style) -->
+    <section id="focus" class="py-20 grid-line-b bg-warm-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_focus">FOKUSBEREICHE</div>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="services_heading">
+                        Fokus auf Hochwachstums-Logistiktechnologie
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Industrial List Layout -->
+            <div class="border-t border-b border-industrial-dark divide-y divide-industrial-dark">
+                
+                <!-- Row 1 (Fade-in from Left) -->
+                <div class="dash-row p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal-left delay-100">
+                    <div class="flex-grow max-w-xl">
+                        <h3 class="text-xl font-bold uppercase tracking-tight mb-2" data-i18n="svc1_title">KI-Lagerhaltung & Automatisierung</h3>
+                        <p class="text-sm opacity-80 leading-relaxed font-sans" data-i18n="svc1_desc">
+                            Autonome Mobile Roboter (AMR), Fahrerlose Transportsysteme (FTS/AGV) und KI-Sortiertechnik für unbemannte moderne Lagerinfrastruktur.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Row 2 (Fade-in from Right) -->
+                <div class="dash-row p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal-right delay-200">
+                    <div class="flex-grow max-w-xl">
+                        <h3 class="text-xl font-bold uppercase tracking-tight mb-2" data-i18n="svc2_title">Lieferketten-Algorithmen & SaaS</h3>
+                        <p class="text-sm opacity-80 leading-relaxed font-sans" data-i18n="svc2_desc">
+                            SaaS-Plattformen mit Machine Learning für Echtzeit-Routenoptimierung, vorausschauende Nachfrageplanung und Bestandssteuerung.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Row 3 (Fade-in from Left) -->
+                <div class="dash-row p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal-left delay-300">
+                    <div class="flex-grow max-w-xl">
+                        <h3 class="text-xl font-bold uppercase tracking-tight mb-2" data-i18n="svc3_title">Innovationen auf der Letzten Meile</h3>
+                        <p class="text-sm opacity-80 leading-relaxed font-sans" data-i18n="svc3_desc">
+                            Autonome Zustellfahrzeuge, Frachtdrohnen und intelligente Micro-Fulfillment-Center zur Optimierung der Zustellkosten.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Investment Portfolio Section (Industrial Technical Dossier Format) -->
+    <section id="portfolio" class="py-20 grid-line-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_portfolio">PORTFOLIO</div>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="port_heading">
+                        Investitions-Portfolio
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Technical Spec Sheet Dossier: AROC Technologies GmbH -->
+            <div class="bg-white border-2 border-industrial-dark p-8 sm:p-12 font-mono reveal-on-scroll">
+                
+                <!-- Header Dossier Info Bar -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-industrial-dark pb-6 mb-8 gap-4">
+                    <div>
+                        <span class="text-xs text-accent-blue font-bold uppercase block mb-1">PORTFOLIO COMPANY DOSSIER</span>
+                        <h3 class="text-3xl sm:text-4xl font-black font-sans uppercase tracking-tight text-industrial-dark" data-i18n="aroc_title">
+                            AROC Technologies GmbH
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 2-Column Factual Spec Layout (Left / Right Horizontal Animations) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 font-sans">
+                    <!-- Column 1: Background (Horizontal Fade-In Left) -->
+                    <div class="p-6 bg-warm-white border border-industrial-dark reveal-left delay-200">
+                        <div class="font-mono text-xs text-industrial-dark font-bold uppercase border-b border-industrial-dark pb-2 mb-4 flex justify-between">
+                            <span data-i18n="aroc_bg_title">Unternehmenshintergrund</span>
+                        </div>
+                        <p class="text-sm text-industrial-dark/90 leading-relaxed" data-i18n="aroc_bg_desc">
+                            AROC Technologies GmbH mit Sitz im bayerischen Großwallstadt ist ein deutsches High-Tech-Unternehmen, das auf die Entwicklung, Herstellung und den Betrieb maßgeschneiderter Mehrzweck-Industrieroboter sowie digitaler Prozessoptimierungslösungen für den Einzel- und Großhandel spezialisiert ist.
+                        </p>
+                    </div>
+
+                    <!-- Column 2: Strategic Synergy (Horizontal Fade-In Right) -->
+                    <div class="p-6 bg-warm-white border border-industrial-dark reveal-right delay-300">
+                        <div class="font-mono text-xs text-industrial-dark font-bold uppercase border-b border-industrial-dark pb-2 mb-4 flex justify-between">
+                            <span data-i18n="aroc_synergy_title">Strategische Synergie & Empowerment</span>
+                        </div>
+                        <p class="text-sm text-industrial-dark/90 leading-relaxed" data-i18n="aroc_synergy_desc">
+                            Durch die Investition von eSLOG erhält AROC Zugang zu fortschrittlichen Komponenten-Lieferketten, skaliert seine intelligenten Automatisierungslösungen in der Intralogistik und beschleunigt die kommerzielle Marktdurchdringung in Europa und Asien.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Strategic Resources & Global Ecosystem (Industrial Spec Grid) -->
+    <section id="ecosystem" class="py-20 grid-line-b bg-warm-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_ecosystem">ÖKOSYSTEM</div>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="res_heading">
+                        Strategische Ressourcen & Globale Präsenz
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Hub 1: GALAXIS (Fade-in Left) -->
+                <a href="https://en.galaxis-tech.com/" target="_blank" rel="noopener noreferrer" class="block p-8 bg-white border border-industrial-dark mech-hover group reveal-left delay-100">
+                    <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
+                        <div class="flex items-center space-x-3">
+                            <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white" data-i18n="res_galaxis_title">GALAXIS</h4>
+                            <!-- GALAXIS Golden SVG Logo -->
+                            <svg class="h-6 w-auto" viewBox="0 0 420 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <text x="0" y="62" font-family="'Inter', sans-serif" font-weight="900" font-size="70" fill="#EBB428" letter-spacing="1">GALAXIS</text>
+                            </svg>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-industrial-muted group-hover:text-accent-blue"></i>
+                    </div>
+                    <ul class="space-y-3 font-mono text-xs text-industrial-dark/80 group-hover:text-warm-white/90">
+                        <li class="crosshair" data-i18n="res_galaxis_desc1">In Deutschland gegründet, tief im chinesischen Markt verwurzelt.</li>
+                        <li class="crosshair" data-i18n="res_galaxis_desc2">F&E-Zentren in Gleisdorf (Österreich) und Wuhan.</li>
+                        <li class="crosshair" data-i18n="res_galaxis_desc3">Unternehmenszentrale in Shanghai.</li>
+                        <li class="crosshair" data-i18n="res_galaxis_desc4">Automatisierte Fertigungsstätten in Wuxi und Jiaxing.</li>
+                    </ul>
+                </a>
+
+                <!-- Hub 2: COOP (Fade-in Up) -->
+                <div class="p-8 bg-white border border-industrial-dark mech-hover group reveal-on-scroll delay-200">
+                    <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
+                        <div class="flex items-center space-x-3">
+                            <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white">COOP</h4>
+                            <!-- COOP Royal Blue Vector SVG Logo -->
+                            <svg class="h-6 w-auto" viewBox="0 0 310 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 76 25 A 35 35 0 1 0 76 75" fill="none" stroke="#154BA6" stroke-width="13" stroke-linecap="butt"/>
+                                <circle cx="120" cy="50" r="35" stroke="#154BA6" stroke-width="13" fill="none"/>
+                                <circle cx="195" cy="50" r="35" stroke="#154BA6" stroke-width="13" fill="none"/>
+                                <circle cx="270" cy="50" r="35" stroke="#154BA6" stroke-width="13" fill="none"/>
+                                <path d="M 228 22 L 239 10 V 83 H 228 Z" fill="#154BA6"/>
+                                <rect x="228" y="89" width="11" height="10" fill="#154BA6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 font-mono text-xs text-industrial-dark/80 group-hover:text-warm-white/90">
+                        <li class="crosshair" data-i18n="res_coop_desc1">Operatives Büro in Shanghai; COOP China-Zentrale in Hongkong.</li>
+                        <li class="crosshair" data-i18n="res_coop_desc2">Exklusivpartner der deutschen Marke <strong>Räder-Vogel</strong>.</li>
+                    </ul>
+                </div>
+
+                <!-- Hub 3: Jinwei (Fade-in Right) -->
+                <div class="p-8 bg-white border border-industrial-dark mech-hover group reveal-right delay-300">
+                    <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
+                        <div class="flex items-center space-x-3">
+                            <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white" data-i18n="res_jinwei_title">Jinwei</h4>
+                            <!-- JINWEI Green Vector SVG Logo -->
+                            <svg class="h-6 w-auto" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 0 60 H 30 V 75 H 70 V 25 H 45 V 10 H 100 V 90 H 0 Z" fill="#8CC63F"/>
+                                <path d="M 120 10 H 145 V 75 H 165 V 10 H 176 V 22 H 184 V 10 H 195 V 75 H 215 V 10 H 240 V 90 H 120 Z" fill="#8CC63F"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 font-mono text-xs text-industrial-dark/80 group-hover:text-warm-white/90">
+                        <li class="crosshair" data-i18n="res_jinwei_desc1">Spezialisierte Roboterfertigungsanlage in Tianjin.</li>
+                        <li class="crosshair" data-i18n="res_jinwei_desc2">Strategische Partnerschaft mit <strong>ChinaAE</strong>.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section (Swiss Accordion Grid) -->
+    <section id="faq" class="py-20 grid-line-b">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-12 border-b border-industrial-dark pb-6 reveal-on-scroll">
+                <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_faq">FAQ</div>
+                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="faq_heading">
+                    Häufig gestellte Fragen (FAQ)
+                </h2>
+            </div>
+
+            <div class="border-t border-industrial-dark divide-y divide-industrial-dark font-mono text-xs reveal-on-scroll delay-100">
+                
+                <!-- FAQ 1 -->
+                <div class="bg-white">
+                    <button class="w-full p-6 text-left font-bold text-industrial-dark flex justify-between items-center focus:outline-none hover:bg-industrial-dark hover:text-warm-white transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-sans uppercase" data-i18n="faq1_q">Auf welche Start-up-Phasen konzentriert sich eSLOG hauptsächlich?</span>
+                        <span class="faq-icon text-accent-blue font-bold text-base">[+]</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 font-sans text-sm text-industrial-dark/80 bg-warm-white border-t border-industrial-dark leading-relaxed" data-i18n="faq1_a">
+                            Wir konzentrieren uns hauptsächlich auf Technologie-Start-ups von der Seed- bis zur Series-B-Phase. Solange Ihr Team über Kerntechnologien in KI-Vision, AMR/AGV-Robotik oder Lieferketten-Algorithmen zusammen mit aussichtsreichen kommerziellen Szenarien verfügt, freuen wir uns auf eine Evaluierung und Kontaktaufnahme.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white">
+                    <button class="w-full p-6 text-left font-bold text-industrial-dark flex justify-between items-center focus:outline-none hover:bg-industrial-dark hover:text-warm-white transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-sans uppercase" data-i18n="faq2_q">Welche Branchenressourcen kann eSLOG neben Finanzierung bereitstellen?</span>
+                        <span class="faq-icon text-accent-blue font-bold text-base">[+]</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 font-sans text-sm text-industrial-dark/80 bg-warm-white border-t border-industrial-dark leading-relaxed" data-i18n="faq2_a">
+                            Wir bündeln weltklasse F&E-Zentren (wie Gleisdorf in Österreich und Wuhan), automatisierte Fertigungsknotenpunkte (Wuxi, Jiaxing, Tianjin) und grenzüberschreitende Lieferkettenpartner. Portfoliounternehmen können direkt in realen Lagerszenarien testen und validieren, was den Technologieeinsatz und die Marktskalierung erheblich beschleunigt.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white">
+                    <button class="w-full p-6 text-left font-bold text-industrial-dark flex justify-between items-center focus:outline-none hover:bg-industrial-dark hover:text-warm-white transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-sans uppercase" data-i18n="faq3_q">Wie lange dauert es, nach Einreichung eines Vorschlags eine Antwort zu erhalten?</span>
+                        <span class="faq-icon text-accent-blue font-bold text-base">[+]</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 font-sans text-sm text-industrial-dark/80 bg-warm-white border-t border-industrial-dark leading-relaxed" data-i18n="faq3_a">
+                            Unsere Investitionsgruppe wird innerhalb von 3 bis 7 Werktagen nach Eingang Ihres Vorschlags eine erste Bewertung abschließen. Wenn Ihr Vorschlag mit unserer Investitionsstrategie übereinstimmt, wird sich ein Projektverantwortlicher proaktiv mit Ihnen in Verbindung setzen und ein anschließendes Online- oder persönliches Treffen vereinbaren.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pitch Submission Section (Industrial Engineering Blueprint Style) -->
+    <section id="contact" class="py-20 bg-industrial-dark text-warm-white grid-line-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 flex flex-col justify-between reveal-left">
+                    <div>
+                        <div class="font-mono text-xs uppercase tracking-widest text-accent-blue mb-4" data-i18n="tag_contact">PITCH EINREICHEN</div>
+                        <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-6 leading-tight" data-i18n="contact_heading">
+                            Empowerung von Innovatoren, die die Zukunft gestalten
+                        </h2>
+                        <p class="text-sm text-warm-white/70 leading-relaxed font-sans mb-8" data-i18n="contact_desc">
+                            Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, das eSLOG-Investitionsteam zu kontaktieren.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 font-mono text-xs text-warm-white/60 border-t border-warm-white/20 pt-6">
+                        <div><strong class="text-warm-white uppercase">DIRECT CONTACT:</strong></div>
+                        <div data-i18n="contact_email_holder">[ E-Mail-Adresse wird hinzugefügt ]</div>
+                        <div data-i18n="contact_addr_holder">[ Büroadresse wird hinzugefügt ]</div>
+                    </div>
+                </div>
+
+                <!-- Form Block (Horizontal Fade-In Right) -->
+                <div class="lg:col-span-7 bg-warm-white text-industrial-dark p-8 border border-industrial-dark reveal-right delay-200">
+                    <form id="contact-form" onsubmit="event.preventDefault(); showMessage();">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_name">Name der Kontaktperson</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_name" placeholder="Max Mustermann" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_phone">Telefonnummer</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_phone" placeholder="+49 123 456789" required>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="email" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_email">Unternehmens-E-Mail</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_email" placeholder="ihre@firma.com" required>
+                            </div>
+                            <div>
+                                <label for="stage" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_stage">Aktuelle Finanzierungsphase</label>
+                                <select id="stage" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm">
+                                    <option data-i18n="opt_stage_1">Angel / Seed-Runde</option>
+                                    <option data-i18n="opt_stage_2">Pre-Series A</option>
+                                    <option data-i18n="opt_stage_3">Series A</option>
+                                    <option data-i18n="opt_stage_4">Series B & darüber hinaus</option>
+                                    <option data-i18n="opt_stage_5">Sonstige Partnerschaften</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="interest" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_interest">Kerngeschäfts- / Technologiefeld</label>
+                            <select id="interest" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm">
+                                <option data-i18n="opt_int_1">KI-Lagerhaltung & Robotik (AMR/AGV)</option>
+                                <option data-i18n="opt_int_2">Lieferketten-Algorithmen (SaaS)</option>
+                                <option data-i18n="opt_int_3">Innovationen auf der Letzten Meile</option>
+                                <option data-i18n="opt_int_4">Sonstige Technologie- & Hardware-Innovationen</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="deck" class="block font-mono text-xs uppercase font-bold mb-2">
+                                <span data-i18n="lbl_deck">Pitch Deck URL</span> <span class="text-industrial-muted font-normal" data-i18n="lbl_deck_sub">(Optional)</span>
+                            </label>
+                            <input type="url" id="deck" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_deck" placeholder="https://drive.google.com/... oder DocSend Link">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_msg">Beschreiben Sie Ihre Technologievorteile & Ihren Vorschlag</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm resize-none" data-i18n-placeholder="ph_msg" placeholder="Beschreiben Sie kurz Ihre Kerntechnologievorteile, Ihren Zielmarkt oder Ihren aktuellen Fundraising-Fortschritt..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-industrial-dark text-warm-white hover:bg-accent-blue font-mono text-xs uppercase font-bold py-4 px-6 transition-colors border border-industrial-dark" data-i18n="btn_submit">
+                            Pitch-Vorschlag einreichen
+                        </button>
+                    </form>
+                    
+                    <div id="success-message" class="hidden mt-4 p-4 bg-industrial-dark text-accent-blue font-mono text-xs border border-accent-blue flex items-center">
+                        <i class="fas fa-check mr-2"></i>
+                        <span data-i18n="msg_success">Vielen Dank für Ihre Einreichung! Unser Investitionsteam wird diese umgehend prüfen und sich bei Ihnen melden.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-warm-white py-12 border-t border-industrial-dark font-mono text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div class="flex items-center space-x-4">
+                    <svg class="h-8 w-auto" viewBox="0 0 510 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 42 L80 10 L80 105 L15 125 Z" fill="#F3A628"/>
+                        <path d="M32 50 L68 28 L68 98 L32 110 Z" fill="#EAEBED"/>
+                        <path d="M80 10 L145 38 L80 68 L15 42 Z" fill="#10A0DE"/>
+                        <path d="M35 43 L80 22 L125 41 L80 62 Z" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+                        <path d="M55 42 L80 30 L105 41" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+                        <path d="M80 68 L145 38 L145 115 L80 105 Z" fill="#FFFFFF" stroke="#85888B" stroke-width="6"/>
+                        <path d="M92 78 L133 60 L133 80 L92 98 L92 102 L133 88" fill="none" stroke="#85888B" stroke-width="6" stroke-linecap="square"/>
+                        <text x="170" y="98" font-family="'Inter', 'Helvetica Neue', sans-serif" font-weight="500" font-size="95" fill="#10A0DE">e</text>
+                        <text x="222" y="98" font-family="'Inter', 'Helvetica Neue', sans-serif" font-weight="300" font-size="92" fill="#85888B" letter-spacing="-1">SLOG</text>
+                        <text x="172" y="128" font-family="'Inter', 'Arial', sans-serif" font-weight="600" font-size="19" fill="#9DA0A5" letter-spacing="3.2">END SOLUTIONS LOGISTICS</text>
+                    </svg>
+                    <p class="text-industrial-muted uppercase" data-i18n="footer_copyright">© 2026 eSLOG. Alle Rechte vorbehalten.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top Floating Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 bg-industrial-dark text-warm-white border border-industrial-dark hover:bg-accent-blue hover:border-accent-blue w-12 h-12 opacity-0 pointer-events-none transition-all duration-150 flex items-center justify-center font-mono">
+        <i class="fas fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- Interactive Scripts & Internationalization (DE / EN / ZH) -->
+    <script>
+        const translations = {
+            de: {
+                page_title: "eSLOG | Autonomous Supply Chain Venture Capital",
+                nav_about: "Über uns",
+                nav_services: "Fokusbereiche",
+                nav_portfolio: "Portfolio",
+                nav_resources: "Ökosystem",
+                nav_faq: "FAQ",
+                nav_contact: "Pitch einreichen",
+
+                tag_about: "ÜBER UNS",
+                tag_focus: "FOKUSBEREICHE",
+                tag_portfolio: "PORTFOLIO",
+                tag_ecosystem: "ÖKOSYSTEM",
+                tag_faq: "FAQ",
+                tag_contact: "PITCH EINREICHEN",
+
+                hero_title: 'Finanzierung der<br>autonomen Lieferkette<br><span class="text-accent-blue">Präzision für KI & Robotik</span>',
+                hero_desc: "eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.",
+                hero_btn_submit: "Pitch-Vorschlag einreichen",
+                hero_btn_about: "Investitionsphilosophie",
+
+                stat_1_lbl: "Strategische Hubs",
+                stat_2_lbl: "Fokus Logistik & KI",
+                stat_3_lbl: "Lieferketten-Skalierung",
+                stat_4_lbl: "Investitionsphasen",
+
+                about_heading: "Neudefinition von Investitionen in Logistiktechnologie",
+                about_p1: "Künstliche Intelligenz und Robotik transformieren die physische Logistik grundlegend. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.",
+                about_p2: "Über Risikokapital hinaus bieten wir direkten Zugang zu europäischen Testumgebungen, Komponenten-Lieferketten und automatisierter Fertigungsinfrastruktur.",
+                about_f1_title: "Fokussierung auf Kerntechnologie",
+                about_f1_desc: "Kommerzialisierung von KI-Vision, autonomer Navigation (SLAM) und Roboter-Handhabungssystemen.",
+                about_f2_title: "End-to-End Lösungen",
+                about_f2_desc: "Nahtlose Einbindung in bestehende Enterprise-Lieferketten zur drastischen Senkung operativer Gesamtkosten.",
+
+                services_heading: "Fokus auf Hochwachstums-Logistiktechnologie",
+                svc1_title: "KI-Lagerhaltung & Automatisierung",
+                svc1_desc: "Autonome Mobile Roboter (AMR), Fahrerlose Transportsysteme (FTS/AGV) und KI-Sortiertechnik für unbemannte moderne Lagerinfrastruktur.",
+                svc2_title: "Lieferketten-Algorithmen & SaaS",
+                svc2_desc: "SaaS-Plattformen mit Machine Learning für Echtzeit-Routenoptimierung, vorausschauende Nachfrageplanung und Bestandssteuerung.",
+                svc3_title: "Innovationen auf der Letzten Meile",
+                svc3_desc: "Autonome Zustellfahrzeuge, Frachtdrohnen und intelligente Micro-Fulfillment-Center zur Optimierung der Zustellkosten.",
+
+                port_heading: "Investitions-Portfolio",
+                aroc_title: "AROC Technologies GmbH",
+                aroc_bg_title: "Unternehmenshintergrund",
+                aroc_bg_desc: "AROC Technologies GmbH mit Sitz im bayerischen Großwallstadt ist ein deutsches High-Tech-Unternehmen, das auf die Entwicklung, Herstellung und den Betrieb maßgeschneiderter Mehrzweck-Industrieroboter sowie digitaler Prozessoptimierungslösungen für den Einzel- und Großhandel spezialisiert ist.",
+                aroc_synergy_title: "Strategische Synergie & Empowerment",
+                aroc_synergy_desc: "Durch die Investition von eSLOG erhält AROC Zugang zu fortschrittlichen Komponenten-Lieferketten, skaliert seine intelligenten Automatisierungslösungen in der Intralogistik und beschleunigt die kommerzielle Marktdurchdringung in Europa und Asien.",
+
+                res_heading: "Strategische Ressourcen & Globale Präsenz",
+                res_galaxis_title: "GALAXIS",
+                res_galaxis_desc1: "In Deutschland gegründet, tief im chinesischen Markt verwurzelt.",
+                res_galaxis_desc2: "F&E-Zentren in Gleisdorf (Österreich) und Wuhan.",
+                res_galaxis_desc3: "Unternehmenszentrale in Shanghai.",
+                res_galaxis_desc4: "Automatisierte Fertigungsstätten in Wuxi und Jiaxing.",
+                res_coop_desc1: "Operatives Büro in Shanghai; COOP China-Zentrale in Hongkong.",
+                res_coop_desc2: "Exklusivpartner der deutschen Marke Räder-Vogel.",
+                res_jinwei_title: "Jinwei",
+                res_jinwei_desc1: "Spezialisierte Roboterfertigungsanlage in Tianjin.",
+                res_jinwei_desc2: "Strategische Partnerschaft mit ChinaAE.",
+
+                faq_heading: "Häufig gestellte Fragen (FAQ)",
+                faq1_q: "Auf welche Start-up-Phasen konzentriert sich eSLOG hauptsächlich?",
+                faq1_a: "Wir konzentrieren uns hauptsächlich auf Technologie-Start-ups von der Seed- bis zur Series-B-Phase. Solange Ihr Team über Kerntechnologien in KI-Vision, AMR/AGV-Robotik oder Lieferketten-Algorithmen zusammen mit aussichtsreichen kommerziellen Szenarien verfügt, freuen wir uns auf eine Evaluierung und Kontaktaufnahme.",
+                faq2_q: "Welche Branchenressourcen kann eSLOG neben Finanzierung bereitstellen?",
+                faq2_a: "Wir bündeln weltklasse F&E-Zentren (wie Gleisdorf in Österreich und Wuhan), automatisierte Fertigungsknotenpunkte (Wuxi, Jiaxing, Tianjin) und grenzüberschreitende Lieferkettenpartner. Portfoliounternehmen können direkt in realen Lagerszenarien testen und validieren, was den Technologieeinsatz und die Marktskalierung erheblich beschleunigt.",
+                faq3_q: "Wie lange dauert es, nach Einreichung eines Vorschlags eine Antwort zu erhalten?",
+                faq3_a: "Unsere Investitionsgruppe wird innerhalb von 3 bis 7 Werktagen nach Eingang Ihres Vorschlags eine erste Bewertung abschließen. Wenn Ihr Vorschlag mit unserer Investitionsstrategie übereinstimmt, wird sich ein Projektverantwortlicher proaktiv mit Ihnen in Verbindung setzen und ein anschließendes Online- oder persönliches Treffen vereinbaren.",
+
+                contact_heading: "Empowerung von Innovatoren, die die Zukunft gestalten",
+                contact_desc: "Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, das eSLOG-Investitionsteam zu kontaktieren.",
+                contact_email_holder: "[ E-Mail-Adresse wird hinzugefügt ]",
+                contact_addr_holder: "[ Büroadresse wird hinzugefügt ]",
+                
+                lbl_name: "Name der Kontaktperson",
+                ph_name: "Max Mustermann",
+                lbl_phone: "Telefonnummer",
+                ph_phone: "+49 123 456789",
+                lbl_email: "Unternehmens-E-Mail",
+                ph_email: "ihre@firma.com",
+                lbl_stage: "Aktuelle Finanzierungsphase",
+                opt_stage_1: "Angel / Seed-Runde",
+                opt_stage_2: "Pre-Series A",
+                opt_stage_3: "Series A",
+                opt_stage_4: "Series B & darüber hinaus",
+                opt_stage_5: "Sonstige Partnerschaften",
+                lbl_interest: "Kerngeschäfts- / Technologiefeld",
+                opt_int_1: "KI-Lagerhaltung & Robotik (AMR/AGV)",
+                opt_int_2: "Lieferketten-Algorithmen (SaaS)",
+                opt_int_3: "Innovationen auf der Letzten Meile",
+                opt_int_4: "Sonstige Technologie- & Hardware-Innovationen",
+                lbl_deck: "Pitch Deck URL",
+                lbl_deck_sub: "(Optional)",
+                ph_deck: "https://drive.google.com/... oder DocSend Link",
+                lbl_msg: "Beschreiben Sie Ihre Technologievorteile & Ihren Vorschlag",
+                ph_msg: "Beschreiben Sie kurz Ihre Kerntechnologievorteile, Ihren Zielmarkt oder Ihren aktuellen Fundraising-Fortschritt...",
+                btn_submit: "Pitch-Vorschlag einreichen",
+                msg_submitting: "Wird eingereicht...",
+                msg_success: "Vielen Dank für Ihre Einreichung! Unser Investitionsteam wird diese umgehend prüfen und sich bei Ihnen melden.",
+
+                footer_copyright: "© 2026 eSLOG. Alle Rechte vorbehalten."
+            },
+            en: {
+                page_title: "eSLOG | Autonomous Supply Chain Venture Capital",
+                nav_about: "About Us",
+                nav_services: "Focus Areas",
+                nav_portfolio: "Portfolio",
+                nav_resources: "Ecosystem",
+                nav_faq: "FAQ",
+                nav_contact: "Submit Pitch",
+
+                tag_about: "ABOUT US",
+                tag_focus: "FOCUS AREAS",
+                tag_portfolio: "PORTFOLIO",
+                tag_ecosystem: "ECOSYSTEM",
+                tag_faq: "FAQ",
+                tag_contact: "SUBMIT PITCH",
+
+                hero_title: 'Financing the<br>autonomous supply chain<br><span class="text-accent-blue">Precision scaling for AI & Robotics</span>',
+                hero_desc: "eSLOG deploys venture capital into high-potential hard-tech innovators. We bridge capital with robust German industrial infrastructure to scale autonomous intralogistics and AI control.",
+                hero_btn_submit: "Submit Pitch Proposal",
+                hero_btn_about: "Investment Philosophy",
+
+                stat_1_lbl: "Strategic Hubs",
+                stat_2_lbl: "Logistics & AI Focused",
+                stat_3_lbl: "Supply Chain Scaling",
+                stat_4_lbl: "Investment Stages",
+
+                about_heading: "Redefining Investment Horizons in Logistics Tech",
+                about_p1: "Artificial intelligence and robotics are fundamentally reshaping physical logistics. Our investment thesis is built on technical verification, commercial scalability, and measurable ROI in unmanned intralogistics.",
+                about_p2: "Beyond venture capital, we provide direct access to European testing environments, component supply chains, and automated manufacturing hubs.",
+                about_f1_title: "Core Technology Driven",
+                about_f1_desc: "Practical commercialization of AI vision, autonomous navigation (SLAM), and robotic manipulation.",
+                about_f2_title: "End-to-End Solutions",
+                about_f2_desc: "Seamless integration into enterprise supply chains to drastically lower total operational costs.",
+
+                services_heading: "High-Growth Logistics Technology Focus",
+                svc1_title: "AI Warehousing & Automation",
+                svc1_desc: "Autonomous Mobile Robots (AMR), Automated Guided Vehicles (AGV), and smart sorting systems for unmanned warehouse infrastructure.",
+                svc2_title: "Supply Chain Algorithms & SaaS",
+                svc2_desc: "SaaS platforms deploying machine learning for real-time route optimization, predictive demand forecasting, and inventory management.",
+                svc3_title: "Last-Mile Innovations",
+                svc3_desc: "Autonomous delivery vehicles, cargo drones, and smart micro-fulfillment centers optimizing unit economics.",
+
+                port_heading: "Investment Portfolio",
+                aroc_title: "AROC Technologies GmbH",
+                aroc_bg_title: "Company Background",
+                aroc_bg_desc: "AROC Technologies GmbH, headquartered in Großwallstadt, Bavaria, is a German high-tech company specializing in the development, production, and operation of customized multipurpose industrial robots and process optimization solutions for retail and wholesale.",
+                aroc_synergy_title: "Strategic Synergy & Empowerment",
+                aroc_synergy_desc: "Through eSLOG's investment, AROC gains direct access to component supply chains, scales its automation systems into intralogistics scenarios, and accelerates commercial expansion across Europe and Asia.",
+
+                res_heading: "Strategic Resources & Global Presence",
+                res_galaxis_title: "GALAXIS",
+                res_galaxis_desc1: "Founded in Germany, deeply rooted in the Asian logistics ecosystem.",
+                res_galaxis_desc2: "R&D centers in Gleisdorf (Austria) and Wuhan.",
+                res_galaxis_desc3: "Corporate headquarters in Shanghai.",
+                res_galaxis_desc4: "Automated manufacturing hubs in Wuxi and Jiaxing.",
+                res_coop_desc1: "Operational office in Shanghai; COOP China HQ in Hong Kong.",
+                res_coop_desc2: "Exclusive partner for premium German brand Räder-Vogel.",
+                res_jinwei_title: "Jinwei",
+                res_jinwei_desc1: "Specialized robot assembly facility in Tianjin.",
+                res_jinwei_desc2: "Strategic partnership with ChinaAE.",
+
+                faq_heading: "Frequently Asked Questions (FAQ)",
+                faq1_q: "What startup stages does eSLOG primarily focus on?",
+                faq1_a: "We focus on technology startups from Seed to Series B. If your team possesses core IP in AI vision, AMR/AGV robotics, or supply chain algorithms with verified commercial traction, we welcome your proposal.",
+                faq2_q: "What industry resources can eSLOG provide besides capital?",
+                faq2_a: "We integrate world-class R&D hubs, automated manufacturing bases, and cross-border supply chain networks. Portfolio companies test directly inside active warehouse operations, accelerating market scaling.",
+                faq3_q: "How long does it take to receive a response after submission?",
+                faq3_a: "Our investment committee conducts an initial review within 3 to 7 business days. If aligned with our thesis, a project lead will contact you to arrange a technical evaluation.",
+
+                contact_heading: "Empowering Innovators Shaping the Autonomous Future",
+                contact_desc: "If your team has advanced logistics AI or robotics solutions and seeks capital and industrial scale, submit your proposal to our investment team.",
+                contact_email_holder: "[ Email Address to be Added ]",
+                contact_addr_holder: "[ Office Address to be Added ]",
+                
+                lbl_name: "Contact Person Name",
+                ph_name: "John Doe",
+                lbl_phone: "Phone Number",
+                ph_phone: "+49 123 456789",
+                lbl_email: "Company Email",
+                ph_email: "your@company.com",
+                lbl_stage: "Current Fundraising Stage",
+                opt_stage_1: "Angel / Seed Round",
+                opt_stage_2: "Pre-Series A",
+                opt_stage_3: "Series A",
+                opt_stage_4: "Series B & Beyond",
+                opt_stage_5: "Other Partnerships",
+                lbl_interest: "Core Business / Technology Area",
+                opt_int_1: "AI Warehousing & Robotics (AMR/AGV)",
+                opt_int_2: "Supply Chain Algorithms (SaaS)",
+                opt_int_3: "Last-Mile Innovations",
+                opt_int_4: "Other Tech & Hardware Innovations",
+                lbl_deck: "Pitch Deck URL",
+                lbl_deck_sub: "(Optional)",
+                ph_deck: "https://drive.google.com/... or DocSend link",
+                lbl_msg: "Describe Your Tech Advantages & Proposal",
+                ph_msg: "Briefly describe your core tech advantages, target market, or current fundraising progress...",
+                btn_submit: "Submit Pitch Proposal",
+                msg_submitting: "Submitting...",
+                msg_success: "Thank you for your submission. Our investment team will review it shortly.",
+
+                footer_copyright: "© 2026 eSLOG. All rights reserved."
+            },
+            zh: {
+                page_title: "eSLOG | 自主供應鏈創投機構",
+                nav_about: "關於我們",
+                nav_services: "聚焦領域",
+                nav_portfolio: "投資組合",
+                nav_resources: "產業生態",
+                nav_faq: "常見問題",
+                nav_contact: "提交提案",
+
+                tag_about: "關於我們",
+                tag_focus: "聚焦領域",
+                tag_portfolio: "投資組合",
+                tag_ecosystem: "產業生態",
+                tag_faq: "常見問題",
+                tag_contact: "提交提案",
+
+                hero_title: '自主供應鏈資本與賦能<br><span class="text-accent-blue">精準驅動 AI 與機器人規模化</span>',
+                hero_desc: "eSLOG 專注投資全球深硬科技創新者。我們將風險資本與德國工業基礎設施相結合，加速自主內物流與 AI 控制技術規模化商業落地。",
+                hero_btn_submit: "提交 Pitch 提案",
+                hero_btn_about: "投資哲學與理念",
+
+                stat_1_lbl: "全球戰略樞紐",
+                stat_2_lbl: "100% 聚焦物流與 AI",
+                stat_3_lbl: "供應鏈規模化賦能",
+                stat_4_lbl: "投資階段",
+
+                about_heading: "重新定義物流科技投資視野",
+                about_p1: "人工智慧與機器人技術正在根本性重塑物理物流。我們的投資決策完全建立在技術驗證、商業可擴展性以及無人化內物流的實質 ROI 數據之上。",
+                about_p2: "超越風險資本本身，我們為被投企業提供直接進入歐洲測試場景、零組件供應鏈與自動化製造樞紐的對接管道。",
+                about_f1_title: "前沿核心技術驅動",
+                about_f1_desc: "專注於 AI 視覺、自主導航 (SLAM) 與機器人手臂操作技術的實用商業化。",
+                about_f2_title: "端到端解決方案",
+                about_f2_desc: "無縫融入企業級供應鏈，大幅降低整體營運成本。",
+
+                services_heading: "聚焦高成長物流科技",
+                svc1_title: "AI 倉儲與自動化",
+                svc1_desc: "自主移動機器人 (AMR)、無人搬運車 (AGV) 及 AI 分揀技術，打造現代無人倉儲基礎設施。",
+                svc2_title: "供應鏈演算法與 SaaS",
+                svc2_desc: "運用機器學習進行即時路徑優化、需求預測與自動化庫存管理的 SaaS 平台。",
+                svc3_title: "最後一公里創新",
+                svc3_desc: "自動駕駛送貨車、貨運無人機與智慧微型倉儲，優化最後一公里單元經濟。",
+
+                port_heading: "投資組合",
+                aroc_title: "AROC Technologies GmbH",
+                aroc_bg_title: "企業背景",
+                aroc_bg_desc: "AROC Technologies GmbH 總部位於德國巴伐利亞州 Großwallstadt，是一家專注於研發、生產與營運客制化多用途工業機器人，並為零售與批發提供數位化流程優化方案的高科技企業。",
+                aroc_synergy_title: "戰略協同與賦能",
+                aroc_synergy_desc: "透過 eSLOG 的投資，AROC 得以獲取關鍵零組件供應鏈資源，將其智慧自動化方案擴展至內部物流場景，並加速在歐洲與亞洲市場的商業滲透。",
+
+                res_heading: "戰略資源與全球佈局",
+                res_galaxis_title: "GALAXIS",
+                res_galaxis_desc1: "創立於德國，深耕亞洲物流產業生態系。",
+                res_galaxis_desc2: "於奧地利 Gleisdorf 與中國武漢設有頂尖研發中心。",
+                res_galaxis_desc3: "企業營運總部設於上海。",
+                res_galaxis_desc4: "於無錫及嘉興設有大型自動化製造基地。",
+                res_coop_desc1: "營運辦公室設於上海；COOP 中國總部位於香港。",
+                res_coop_desc2: "德國頂級品牌 Räder-Vogel 獨家合作夥伴。",
+                res_jinwei_title: "Jinwei",
+                res_jinwei_desc1: "位於天津的專業機器人組裝基地。",
+                res_jinwei_desc2: "與 ChinaAE 建立深厚戰略合作夥伴關係。",
+
+                faq_heading: "常見問題 (FAQ)",
+                faq1_q: "eSLOG 主要關注哪些階段的初創企業？",
+                faq1_a: "我們主要關注從種子輪 (Seed) 到 B 輪 (Series B) 的科技初創企業。只要您的團隊在 AI 視覺、AMR/AGV 機器人或供應鏈演算法方面擁有專利技術與商業驗證，我們都非常期待進行評估。",
+                faq2_q: "除了資金外，eSLOG 還能提供哪些產業資源？",
+                faq2_a: "我們匯聚世界級研發中心、自動化製造樞紐及跨境供應鏈網絡。被投企業可直接在真實倉儲場景中進行測試驗證，大幅加速技術落地。",
+                faq3_q: "提交提案後，通常需要多久收到回覆？",
+                faq3_a: "我們的投資委員會將於收到提案後 3 至 7 個工作天內完成初審。若符合我們的投資哲學，專案負責人將主動與您聯繫。",
+
+                contact_heading: "賦能塑造未來的創新者",
+                contact_desc: "如果您的團隊擁有前沿物流 AI 技術或機器人解決方案，並正在尋求資本與產業規模化資源，歡迎聯繫 eSLOG 投資團隊。",
+                contact_email_holder: "[ 待新增 Email 地址 ]",
+                contact_addr_holder: "[ 待新增辦公室地址 ]",
+                
+                lbl_name: "聯絡人姓名",
+                ph_name: "張小明",
+                lbl_phone: "電話號碼",
+                ph_phone: "+886 912 345 678",
+                lbl_email: "公司 Email",
+                ph_email: "your@company.com",
+                lbl_stage: "目前募資階段",
+                opt_stage_1: "天使輪 / 種子輪",
+                opt_stage_2: "Pre-Series A",
+                opt_stage_3: "A 輪",
+                opt_stage_4: "B 輪及以上",
+                opt_stage_5: "其他合作形式",
+                lbl_interest: "核心業務 / 技術領域",
+                opt_int_1: "AI 倉儲與機器人 (AMR/AGV)",
+                opt_int_2: "供應鏈演算法 (SaaS)",
+                opt_int_3: "最後一公里創新",
+                opt_int_4: "其他科技與硬體創新",
+                lbl_deck: "Pitch Deck 連結",
+                lbl_deck_sub: "(選填)",
+                ph_deck: "https://drive.google.com/... 或 DocSend 連結",
+                lbl_msg: "簡述您的技術優勢與提案",
+                ph_msg: "請簡要說明您的核心技術優勢、目標市場或目前的募資進度...",
+                btn_submit: "提交 Pitch 提案",
+                msg_submitting: "提交中...",
+                msg_success: "感謝您的提交！我們的投資團隊將儘快進行審閱與聯繫。",
+
+                footer_copyright: "© 2026 eSLOG. 保留所有權利。"
+            }
+        };
+
+        // Language Switcher Logic
+        let currentLang = localStorage.getItem('eslog_lang') || 'de';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('eslog_lang', lang);
+            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
+
+            const languages = ['de', 'en', 'zh'];
+            languages.forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                const btnMobile = document.getElementById(`lang-${l}-mobile`);
+                
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2.5 py-1.5 bg-accent-blue text-white font-bold transition-colors";
+                    } else {
+                        btn.className = "px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors";
+                    }
+                }
+                if (btnMobile) {
+                    if (l === lang) {
+                        btnMobile.className = "px-2 py-1 bg-accent-blue text-white font-bold";
+                    } else {
+                        btnMobile.className = "px-2 py-1 text-industrial-dark border-l border-industrial-dark";
+                    }
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            if (translations[lang] && translations[lang]['page_title']) {
+                document.title = translations[lang]['page_title'];
+            }
+        }
+
+        // Initialize Language on DOM ready & Intersection Observer for Scroll Reveal Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.08
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            changeLanguage(currentLang);
+
+            document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Back to top floating button trigger
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // FAQ Accordion Mechanical Toggle
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            const isOpen = answer.classList.contains('open');
+
+            document.querySelectorAll('.faq-content').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.innerText = '[+]');
+
+            if (!isOpen) {
+                answer.classList.add('open');
+                icon.innerText = '[-]';
+            }
+        }
+
+        // Form Submission Handler
+        function showMessage() {
+            const form = document.getElementById('contact-form');
+            const msg = document.getElementById('success-message');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            const submittingText = translations[currentLang]['msg_submitting'];
+            const defaultText = translations[currentLang]['btn_submit'];
+
+            submitBtn.innerHTML = submittingText;
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                form.reset();
+                submitBtn.innerHTML = defaultText;
+                submitBtn.disabled = false;
+                
+                msg.classList.remove('hidden');
+                setTimeout(() => {
+                    msg.classList.add('hidden');
+                }, 5000);
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
