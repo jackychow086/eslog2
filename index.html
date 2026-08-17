@@ -64,8 +64,9 @@
         .grid-light-b { border-bottom: 1px solid #E2E4E8; }
         .grid-light-r { border-right: 1px solid #E2E4E8; }
 
+        /* Mechanical Micro-interactions with Color Inheritance */
         .mech-hover {
-            transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s ease, border-color 0.15s ease;
+            transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
         }
         .mech-hover:hover {
             transform: translateX(4px);
@@ -76,6 +77,7 @@
             color: #10A0DE;
         }
         
+        /* Industrial Row Hover Mechanism */
         .dash-row {
             transition: all 0.15s ease-in-out;
         }
@@ -100,6 +102,7 @@
             margin-right: 0px;
         }
 
+        /* Smooth Reveal Animations */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(28px);
@@ -256,33 +259,34 @@
                 <div class="lg:col-span-4 reveal-left">
                     <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-4 crosshair" data-i18n="tag_about">ÜBER UNS</div>
                     <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-normal leading-snug break-words text-industrial-dark" data-i18n="about_heading">
-                        Neudefinition von Investitionen in Logistiktechnologie
+                        Erweiterung der Investitionsgrenzen in der autonomen Logistik
                     </h2>
                 </div>
 
                 <!-- Right Content Column -->
                 <div class="lg:col-span-8 space-y-8 reveal-right delay-200">
                     <p class="text-lg text-industrial-dark/90 leading-relaxed font-normal" data-i18n="about_p1">
-                        Künstliche Intelligenz und Robotik transformieren die physische Logistik grundlegend. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.
+                        Künstliche Intelligenz und Robotik transformieren die Logistik. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.
                     </p>
                     <p class="text-base text-industrial-muted leading-relaxed" data-i18n="about_p2">
                         Über Risikokapital hinaus bieten wir direkten Zugang zu europäischen Testumgebungen, Komponenten-Lieferketten und automatisierter Fertigungsinfrastruktur.
                     </p>
 
                     <div class="pt-6 grid-line-t space-y-6 font-mono text-xs">
+                        <!-- Updated to use dash-row / mech-hover color inheritance mechanism for consistent white hover text -->
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start p-4 bg-white border border-industrial-dark mech-hover reveal-left delay-300">
                             <div class="md:col-span-3 text-accent-blue font-bold tracking-wider">TECH_DRIVEN</div>
                             <div class="md:col-span-9 font-sans text-sm">
-                                <div class="font-bold uppercase text-industrial-dark mb-1" data-i18n="about_f1_title">Fokussierung auf Kerntechnologie</div>
-                                <div class="text-industrial-muted" data-i18n="about_f1_desc">Kommerzialisierung von KI-Vision, autonomer Navigation (SLAM) und Roboter-Handhabungssystemen.</div>
+                                <div class="font-bold uppercase mb-1" data-i18n="about_f1_title">Fokussierung auf Kerntechnologie</div>
+                                <div class="opacity-80 leading-relaxed" data-i18n="about_f1_desc">Kommerzialisierung von KI-Vision, autonomer Navigation (SLAM) und Roboter-Handhabungssystemen.</div>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start p-4 bg-white border border-industrial-dark mech-hover reveal-right delay-400">
                             <div class="md:col-span-3 text-accent-amber font-bold tracking-wider">INTEGRATION</div>
                             <div class="md:col-span-9 font-sans text-sm">
-                                <div class="font-bold uppercase text-industrial-dark mb-1" data-i18n="about_f2_title">End-to-End Lösungen</div>
-                                <div class="text-industrial-muted" data-i18n="about_f2_desc">Nahtlose Einbindung in bestehende Enterprise-Lieferketten zur drastischen Senkung operativer Gesamtkosten.</div>
+                                <div class="font-bold uppercase mb-1" data-i18n="about_f2_title">End-to-End Lösungen</div>
+                                <div class="opacity-80 leading-relaxed" data-i18n="about_f2_desc">Nahtlose Einbindung in bestehende Enterprise-Lieferketten zur drastischen Senkung operativer Gesamtkosten.</div>
                             </div>
                         </div>
                     </div>
@@ -410,14 +414,14 @@
                 <a href="https://en.galaxis-tech.com/" target="_blank" rel="noopener noreferrer" class="block p-8 bg-white border border-industrial-dark mech-hover group reveal-left delay-100">
                     <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
                         <div class="flex items-center space-x-3">
-                            <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white" data-i18n="res_galaxis_title">GALAXIS</h4>
+                            <h4 class="text-2xl font-black uppercase tracking-tight" data-i18n="res_galaxis_title">GALAXIS</h4>
                             <svg class="h-6 w-auto" viewBox="0 0 420 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <text x="0" y="62" font-family="'Inter', sans-serif" font-weight="900" font-size="70" fill="#EBB428" letter-spacing="1">GALAXIS</text>
                             </svg>
                         </div>
-                        <i class="fas fa-arrow-up-right-from-square text-xs text-industrial-muted group-hover:text-accent-blue"></i>
+                        <i class="fas fa-arrow-up-right-from-square text-xs opacity-60 group-hover:text-accent-blue"></i>
                     </div>
-                    <ul class="space-y-3 font-mono text-xs text-industrial-dark/80 group-hover:text-warm-white/90">
+                    <ul class="space-y-3 font-mono text-xs opacity-80">
                         <li class="crosshair" data-i18n="res_galaxis_desc1">In Deutschland gegründet, tief im chinesischen Markt verwurzelt.</li>
                         <li class="crosshair" data-i18n="res_galaxis_desc2">F&E-Zentren in Gleisdorf (Österreich) und Wuhan.</li>
                         <li class="crosshair" data-i18n="res_galaxis_desc3">Unternehmenszentrale in Shanghai.</li>
@@ -429,7 +433,7 @@
                 <div class="p-8 bg-white border border-industrial-dark mech-hover group reveal-on-scroll delay-200">
                     <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
                         <div class="flex items-center space-x-3">
-                            <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white">COOP</h4>
+                            <h4 class="text-2xl font-black uppercase tracking-tight">COOP</h4>
                             <svg class="h-6 w-auto" viewBox="0 0 310 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M 76 25 A 35 35 0 1 0 76 75" fill="none" stroke="#154BA6" stroke-width="13" stroke-linecap="butt"/>
                                 <circle cx="120" cy="50" r="35" stroke="#154BA6" stroke-width="13" fill="none"/>
@@ -440,7 +444,7 @@
                             </svg>
                         </div>
                     </div>
-                    <ul class="space-y-3 font-mono text-xs text-industrial-dark/80 group-hover:text-warm-white/90">
+                    <ul class="space-y-3 font-mono text-xs opacity-80">
                         <li class="crosshair" data-i18n="res_coop_desc1">Operatives Büro in Shanghai; COOP China-Zentrale in Hongkong.</li>
                         <li class="crosshair" data-i18n="res_coop_desc2">Exklusivpartner der deutschen Marke <strong>Räder-Vogel</strong>.</li>
                     </ul>
@@ -450,14 +454,14 @@
                 <div class="p-8 bg-white border border-industrial-dark mech-hover group reveal-right delay-300">
                     <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
                         <div class="flex items-center space-x-3">
-                            <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white" data-i18n="res_jinwei_title">Jinwei</h4>
+                            <h4 class="text-2xl font-black uppercase tracking-tight" data-i18n="res_jinwei_title">Jinwei</h4>
                             <svg class="h-6 w-auto" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M 0 60 H 30 V 75 H 70 V 25 H 45 V 10 H 100 V 90 H 0 Z" fill="#8CC63F"/>
                                 <path d="M 120 10 H 145 V 75 H 165 V 10 H 176 V 22 H 184 V 10 H 195 V 75 H 215 V 10 H 240 V 90 H 120 Z" fill="#8CC63F"/>
                             </svg>
                         </div>
                     </div>
-                    <ul class="space-y-3 font-mono text-xs text-industrial-dark/80 group-hover:text-warm-white/90">
+                    <ul class="space-y-3 font-mono text-xs opacity-80">
                         <li class="crosshair" data-i18n="res_jinwei_desc1">Spezialisierte Roboterfertigungsanlage in Tianjin.</li>
                         <li class="crosshair" data-i18n="res_jinwei_desc2">Strategische Partnerschaft mit <strong>ChinaAE</strong>.</li>
                     </ul>
@@ -664,8 +668,8 @@
                 stat_3_lbl: "Lieferketten-Skalierung",
                 stat_4_lbl: "Investitionsphasen",
 
-                about_heading: "Neudefinition von Investitionen in Logistiktechnologie",
-                about_p1: "Künstliche Intelligenz und Robotik transformieren die physische Logistik grundlegend. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.",
+                about_heading: "Erweiterung der Investitionsgrenzen in der autonomen Logistik",
+                about_p1: "Künstliche Intelligenz und Robotik transformieren die Logistik. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.",
                 about_p2: "Über Risikokapital hinaus bieten wir direkten Zugang zu europäischen Testumgebungen, Komponenten-Lieferketten und automatisierter Fertigungsinfrastruktur.",
                 about_f1_title: "Fokussierung auf Kerntechnologie",
                 about_f1_desc: "Kommerzialisierung von KI-Vision, autonomer Navigation (SLAM) und Roboter-Handhabungssystemen.",
@@ -766,8 +770,8 @@
                 stat_3_lbl: "Supply Chain Scaling",
                 stat_4_lbl: "Investment Stages",
 
-                about_heading: "Redefining Investment Horizons in Logistics Tech",
-                about_p1: "Artificial intelligence and robotics are fundamentally reshaping physical logistics. Our investment thesis is built on technical verification, commercial scalability, and measurable ROI in unmanned intralogistics.",
+                about_heading: "Expanding Investment Boundaries in Autonomous Logistics",
+                about_p1: "Artificial intelligence and robotics are reshaping logistics. Our investment thesis is built on technical verification, commercial scalability, and measurable ROI in unmanned intralogistics.",
                 about_p2: "Beyond venture capital, we provide direct access to European testing environments, component supply chains, and automated manufacturing hubs.",
                 about_f1_title: "Core Technology Driven",
                 about_f1_desc: "Practical commercialization of AI vision, autonomous navigation (SLAM), and robotic manipulation.",
@@ -868,8 +872,8 @@
                 stat_3_lbl: "供應鏈規模化賦能",
                 stat_4_lbl: "投資階段",
 
-                about_heading: "重新定義物流科技投資視野",
-                about_p1: "人工智慧與機器人技術正在根本性重塑物理物流。我們的投資決策完全建立在技術驗證、商業可擴展性以及無人化內物流的實質 ROI 數據之上。",
+                about_heading: "拓寬自主物流的投資邊界",
+                about_p1: "人工智慧與機器人技術正在重塑物流。我們的投資決策完全建立在技術驗證、商業可擴展性以及無人化內物流的實質 ROI 數據之上。",
                 about_p2: "超越風險資本本身，我們為被投企業提供直接進入歐洲測試場景、零組件供應鏈與自動化製造樞紐的對接管道。",
                 about_f1_title: "前沿核心技術驅動",
                 about_f1_desc: "專注於 AI 視覺、自主導航 (SLAM) 與機器人手臂操作技術的實用商業化。",
@@ -1017,7 +1021,7 @@
             });
         });
 
-        // Back to top floating button trigger
+        // Back to top Floating Button Trigger
         const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
