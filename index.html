@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title">eSLOG | Autonomous Supply Chain Venture Capital</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,7 +19,7 @@
                         'grid-light': '#E2E4E8',
                         'accent-blue': '#10A0DE',
                         'accent-amber': '#F3A628',
-                        'accent-orange': '#10A0DE', /* Backwards compatibility */
+                        'accent-orange': '#10A0DE',
                     },
                     fontFamily: {
                         sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
@@ -28,14 +29,13 @@
             }
         }
     </script>
-    <!-- Google Fonts: Inter & JetBrains Mono for Swiss Typography -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         * {
-            border-radius: 0px !important; /* Strict zero radius for Bauhaus precision */
+            border-radius: 0px !important;
         }
         body {
             background-color: #F8F9FA;
@@ -44,6 +44,17 @@
             -webkit-font-smoothing: antialiased;
         }
         
+        /* Blueprint & Technical Grid Background Patterns */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(35, 38, 42, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(35, 38, 42, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .bg-dot-pattern {
+            background-image: radial-gradient(rgba(35, 38, 42, 0.07) 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+        }
+
         /* Swiss Grid Divider Lines */
         .grid-line-b { border-bottom: 1px solid #23262A; }
         .grid-line-t { border-top: 1px solid #23262A; }
@@ -53,7 +64,6 @@
         .grid-light-b { border-bottom: 1px solid #E2E4E8; }
         .grid-light-r { border-right: 1px solid #E2E4E8; }
 
-        /* Mechanical Micro-interactions */
         .mech-hover {
             transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s ease, border-color 0.15s ease;
         }
@@ -66,19 +76,12 @@
             color: #10A0DE;
         }
         
-        /* Industrial List Item Hover */
         .dash-row {
             transition: all 0.15s ease-in-out;
         }
         .dash-row:hover {
             background-color: #23262A;
             color: #F8F9FA;
-        }
-        .dash-row:hover .dash-meta {
-            color: #10A0DE;
-        }
-        .dash-row:hover .dash-border {
-            border-color: #10A0DE;
         }
 
         /* FAQ Accordion */
@@ -92,13 +95,11 @@
             transition: max-height 0.25s ease-in-out;
         }
 
-        /* Crosshair Target Symbol */
         .crosshair::before {
             content: '';
             margin-right: 0px;
         }
 
-        /* Scroll Reveal Animations (Swiss Industrial Ease: Vertical & Horizontal) */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(28px);
@@ -122,7 +123,6 @@
             transform: translateY(0) translateX(0) !important;
         }
         
-        /* Stagger Delays */
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
@@ -131,43 +131,28 @@
 </head>
 <body class="bg-warm-white text-industrial-dark antialiased flex flex-col min-h-screen selection:bg-accent-blue selection:text-white">
 
-    <!-- Navigation Header -->
     <nav class="w-full bg-warm-white sticky top-0 z-50 grid-line-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-stretch h-20">
-                <!-- Logo Block Left (Vector eSLOG SVG Brand Icon) -->
+                <!-- Logo Block Left -->
                 <div class="flex items-center grid-line-r pr-6 my-auto h-full flex-none">
                     <a href="#" class="flex items-center space-x-3 group">
-                        <!-- Precise SVG recreation of official eSLOG isometric logo -->
                         <svg class="h-10 w-auto" viewBox="0 0 510 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Left Isometric Face (Yellow/Amber #F3A628) -->
                             <path d="M15 42 L80 10 L80 105 L15 125 Z" fill="#F3A628"/>
                             <path d="M32 50 L68 28 L68 98 L32 110 Z" fill="#EAEBED"/>
-                            
-                            <!-- Top Isometric Face (Light Blue #10A0DE) -->
                             <path d="M80 10 L145 38 L80 68 L15 42 Z" fill="#10A0DE"/>
-                            <!-- E-lines on Top Face -->
                             <path d="M35 43 L80 22 L125 41 L80 62 Z" fill="none" stroke="#FFFFFF" stroke-width="5"/>
                             <path d="M55 42 L80 30 L105 41" fill="none" stroke="#FFFFFF" stroke-width="4"/>
-
-                            <!-- Right Isometric Face (Industrial Gray #85888B) -->
                             <path d="M80 68 L145 38 L145 115 L80 105 Z" fill="#FFFFFF" stroke="#85888B" stroke-width="6"/>
-                            <!-- S-line on Right Face -->
                             <path d="M92 78 L133 60 L133 80 L92 98 L92 102 L133 88" fill="none" stroke="#85888B" stroke-width="6" stroke-linecap="square"/>
-
-                            <!-- Text: e (Cyan Blue #10A0DE) -->
                             <text x="170" y="98" font-family="'Inter', 'Helvetica Neue', sans-serif" font-weight="500" font-size="95" fill="#10A0DE">e</text>
-                            
-                            <!-- Text: SLOG (Industrial Gray #85888B) -->
                             <text x="222" y="98" font-family="'Inter', 'Helvetica Neue', sans-serif" font-weight="300" font-size="92" fill="#85888B" letter-spacing="-1">SLOG</text>
-
-                            <!-- Subtitle Text -->
                             <text x="172" y="128" font-family="'Inter', 'Arial', sans-serif" font-weight="600" font-size="19" fill="#9DA0A5" letter-spacing="3.2">END SOLUTIONS LOGISTICS</text>
                         </svg>
                     </a>
                 </div>
 
-                <!-- Desktop Navigation Menu (Swiss Equal-Grid Alignment) -->
+                <!-- Desktop Navigation Menu -->
                 <div class="hidden lg:flex flex-1 items-stretch font-mono text-xs uppercase tracking-wider">
                     <a href="#about" data-i18n="nav_about" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Über uns</a>
                     <a href="#focus" data-i18n="nav_services" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Fokusbereiche</a>
@@ -191,7 +176,6 @@
 
                 <!-- Mobile Header Right Controls -->
                 <div class="lg:hidden flex items-center space-x-3">
-                    <!-- Language Switcher Mobile Quick Toggle -->
                     <div class="flex border border-industrial-dark text-xs font-mono">
                         <button id="lang-de-mobile" onclick="changeLanguage('de')" class="px-2 py-1 bg-accent-blue text-white font-bold">DE</button>
                         <button id="lang-en-mobile" onclick="changeLanguage('en')" class="px-2 py-1 text-industrial-dark border-l border-industrial-dark">EN</button>
@@ -204,7 +188,6 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden border-t border-industrial-dark bg-warm-white font-mono text-xs uppercase">
             <a href="#about" data-i18n="nav_about" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Über uns</a>
             <a href="#focus" data-i18n="nav_services" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Fokusbereiche</a>
@@ -215,12 +198,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Bauhaus Asymmetric Grid) -->
-    <section id="home" class="relative grid-line-b">
+    <section id="home" class="relative grid-line-b bg-grid-pattern overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="py-12 lg:py-20 flex flex-col justify-between">
                 
-                <!-- Main Thesis Block (Full Width) -->
                 <div class="reveal-on-scroll">
                     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-industrial-dark" data-i18n="hero_title">
                         Finanzierung der<br>autonomen Lieferkette<br>
@@ -244,7 +225,6 @@
         </div>
     </section>
 
-    <!-- Industrial Metrics Bar (4-Column Precision Spec Sheet) -->
     <section class="bg-industrial-dark text-warm-white grid-line-b">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-4 font-mono">
@@ -268,12 +248,11 @@
         </div>
     </section>
 
-    <!-- About Us Section (Engineering Thesis) -->
-    <section id="about" class="py-20 grid-line-b">
+    <section id="about" class="py-20 grid-line-b bg-dot-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- Left Title Column (Horizontal Fade-In Left) -->
+                <!-- Left Title Column -->
                 <div class="lg:col-span-4 reveal-left">
                     <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-4 crosshair" data-i18n="tag_about">ÜBER UNS</div>
                     <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-normal leading-snug break-words text-industrial-dark" data-i18n="about_heading">
@@ -281,7 +260,7 @@
                     </h2>
                 </div>
 
-                <!-- Right Content Column (Horizontal Fade-In Right) -->
+                <!-- Right Content Column -->
                 <div class="lg:col-span-8 space-y-8 reveal-right delay-200">
                     <p class="text-lg text-industrial-dark/90 leading-relaxed font-normal" data-i18n="about_p1">
                         Künstliche Intelligenz und Robotik transformieren die physische Logistik grundlegend. Unsere Investitionsentscheidungen basieren auf technischer Validierung, kommerzieller Skalierbarkeit und messbarer Effizienzsteigerung in der unbemannten Intralogistik.
@@ -290,7 +269,6 @@
                         Über Risikokapital hinaus bieten wir direkten Zugang zu europäischen Testumgebungen, Komponenten-Lieferketten und automatisierter Fertigungsinfrastruktur.
                     </p>
 
-                    <!-- Industrial Spec List for Features -->
                     <div class="pt-6 grid-line-t space-y-6 font-mono text-xs">
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start p-4 bg-white border border-industrial-dark mech-hover reveal-left delay-300">
                             <div class="md:col-span-3 text-accent-blue font-bold tracking-wider">TECH_DRIVEN</div>
@@ -314,8 +292,7 @@
         </div>
     </section>
 
-    <!-- Services & Focus Areas (Industrial Dashboard List Style) -->
-    <section id="focus" class="py-20 grid-line-b bg-warm-white">
+    <section id="focus" class="py-20 grid-line-b bg-warm-white bg-grid-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
@@ -327,10 +304,9 @@
                 </div>
             </div>
 
-            <!-- Industrial List Layout -->
             <div class="border-t border-b border-industrial-dark divide-y divide-industrial-dark">
                 
-                <!-- Row 1 (Fade-in from Left) -->
+                <!-- Row 1 -->
                 <div class="dash-row p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal-left delay-100">
                     <div class="flex-grow max-w-xl">
                         <h3 class="text-xl font-bold uppercase tracking-tight mb-2" data-i18n="svc1_title">KI-Lagerhaltung & Automatisierung</h3>
@@ -340,7 +316,7 @@
                     </div>
                 </div>
 
-                <!-- Row 2 (Fade-in from Right) -->
+                <!-- Row 2 -->
                 <div class="dash-row p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal-right delay-200">
                     <div class="flex-grow max-w-xl">
                         <h3 class="text-xl font-bold uppercase tracking-tight mb-2" data-i18n="svc2_title">Lieferketten-Algorithmen & SaaS</h3>
@@ -350,7 +326,7 @@
                     </div>
                 </div>
 
-                <!-- Row 3 (Fade-in from Left) -->
+                <!-- Row 3 -->
                 <div class="dash-row p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal-left delay-300">
                     <div class="flex-grow max-w-xl">
                         <h3 class="text-xl font-bold uppercase tracking-tight mb-2" data-i18n="svc3_title">Innovationen auf der Letzten Meile</h3>
@@ -365,7 +341,6 @@
         </div>
     </section>
 
-    <!-- Investment Portfolio Section (Industrial Technical Dossier Format) -->
     <section id="portfolio" class="py-20 grid-line-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -381,7 +356,6 @@
             <!-- Technical Spec Sheet Dossier: AROC Technologies GmbH -->
             <div class="bg-white border-2 border-industrial-dark p-8 sm:p-12 font-mono reveal-on-scroll">
                 
-                <!-- Header Dossier Info Bar -->
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-industrial-dark pb-6 mb-8 gap-4">
                     <div>
                         <span class="text-xs text-accent-blue font-bold uppercase block mb-1">PORTFOLIO COMPANY DOSSIER</span>
@@ -391,9 +365,8 @@
                     </div>
                 </div>
 
-                <!-- 2-Column Factual Spec Layout (Left / Right Horizontal Animations) -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 font-sans">
-                    <!-- Column 1: Background (Horizontal Fade-In Left) -->
+                    <!-- Column 1: Background -->
                     <div class="p-6 bg-warm-white border border-industrial-dark reveal-left delay-200">
                         <div class="font-mono text-xs text-industrial-dark font-bold uppercase border-b border-industrial-dark pb-2 mb-4 flex justify-between">
                             <span data-i18n="aroc_bg_title">Unternehmenshintergrund</span>
@@ -403,7 +376,7 @@
                         </p>
                     </div>
 
-                    <!-- Column 2: Strategic Synergy (Horizontal Fade-In Right) -->
+                    <!-- Column 2: Strategic Synergy -->
                     <div class="p-6 bg-warm-white border border-industrial-dark reveal-right delay-300">
                         <div class="font-mono text-xs text-industrial-dark font-bold uppercase border-b border-industrial-dark pb-2 mb-4 flex justify-between">
                             <span data-i18n="aroc_synergy_title">Strategische Synergie & Empowerment</span>
@@ -419,8 +392,7 @@
         </div>
     </section>
 
-    <!-- Strategic Resources & Global Ecosystem (Industrial Spec Grid) -->
-    <section id="ecosystem" class="py-20 grid-line-b bg-warm-white">
+    <section id="ecosystem" class="py-20 grid-line-b bg-warm-white bg-dot-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
@@ -434,12 +406,11 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Hub 1: GALAXIS (Fade-in Left) -->
+                <!-- Hub 1: GALAXIS -->
                 <a href="https://en.galaxis-tech.com/" target="_blank" rel="noopener noreferrer" class="block p-8 bg-white border border-industrial-dark mech-hover group reveal-left delay-100">
                     <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
                         <div class="flex items-center space-x-3">
                             <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white" data-i18n="res_galaxis_title">GALAXIS</h4>
-                            <!-- GALAXIS Golden SVG Logo -->
                             <svg class="h-6 w-auto" viewBox="0 0 420 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <text x="0" y="62" font-family="'Inter', sans-serif" font-weight="900" font-size="70" fill="#EBB428" letter-spacing="1">GALAXIS</text>
                             </svg>
@@ -454,12 +425,11 @@
                     </ul>
                 </a>
 
-                <!-- Hub 2: COOP (Fade-in Up) -->
+                <!-- Hub 2: COOP -->
                 <div class="p-8 bg-white border border-industrial-dark mech-hover group reveal-on-scroll delay-200">
                     <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
                         <div class="flex items-center space-x-3">
                             <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white">COOP</h4>
-                            <!-- COOP Royal Blue Vector SVG Logo -->
                             <svg class="h-6 w-auto" viewBox="0 0 310 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M 76 25 A 35 35 0 1 0 76 75" fill="none" stroke="#154BA6" stroke-width="13" stroke-linecap="butt"/>
                                 <circle cx="120" cy="50" r="35" stroke="#154BA6" stroke-width="13" fill="none"/>
@@ -476,12 +446,11 @@
                     </ul>
                 </div>
 
-                <!-- Hub 3: Jinwei (Fade-in Right) -->
+                <!-- Hub 3: Jinwei -->
                 <div class="p-8 bg-white border border-industrial-dark mech-hover group reveal-right delay-300">
                     <div class="flex justify-between items-start mb-6 border-b border-industrial-dark pb-4">
                         <div class="flex items-center space-x-3">
                             <h4 class="text-2xl font-black uppercase tracking-tight text-industrial-dark group-hover:text-warm-white" data-i18n="res_jinwei_title">Jinwei</h4>
-                            <!-- JINWEI Green Vector SVG Logo -->
                             <svg class="h-6 w-auto" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M 0 60 H 30 V 75 H 70 V 25 H 45 V 10 H 100 V 90 H 0 Z" fill="#8CC63F"/>
                                 <path d="M 120 10 H 145 V 75 H 165 V 10 H 176 V 22 H 184 V 10 H 195 V 75 H 215 V 10 H 240 V 90 H 120 Z" fill="#8CC63F"/>
@@ -499,7 +468,6 @@
         </div>
     </section>
 
-    <!-- FAQ Section (Swiss Accordion Grid) -->
     <section id="faq" class="py-20 grid-line-b">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -556,7 +524,6 @@
         </div>
     </section>
 
-    <!-- Pitch Submission Section (Industrial Engineering Blueprint Style) -->
     <section id="contact" class="py-20 bg-industrial-dark text-warm-white grid-line-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -579,7 +546,7 @@
                     </div>
                 </div>
 
-                <!-- Form Block (Horizontal Fade-In Right) -->
+                <!-- Form Block -->
                 <div class="lg:col-span-7 bg-warm-white text-industrial-dark p-8 border border-industrial-dark reveal-right delay-200">
                     <form id="contact-form" onsubmit="event.preventDefault(); showMessage();">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -642,7 +609,6 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="bg-warm-white py-12 border-t border-industrial-dark font-mono text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -670,7 +636,6 @@
         <i class="fas fa-arrow-up text-sm"></i>
     </button>
 
-    <!-- Interactive Scripts & Internationalization (DE / EN / ZH) -->
     <script>
         const translations = {
             de: {
@@ -981,7 +946,6 @@
             }
         };
 
-        // Language Switcher Logic
         let currentLang = localStorage.getItem('eslog_lang') || 'de';
 
         function changeLanguage(lang) {
@@ -1029,7 +993,7 @@
             }
         }
 
-        // Initialize Language on DOM ready & Intersection Observer for Scroll Reveal Animations
+        // Intersection Observer for Scroll Reveal Animations
         const observerOptions = {
             root: null,
             rootMargin: '0px 0px -40px 0px',
@@ -1078,7 +1042,7 @@
             });
         });
 
-        // FAQ Accordion Mechanical Toggle
+        // FAQ Accordion Toggle
         function toggleFaq(button) {
             const answer = button.nextElementSibling;
             const icon = button.querySelector('.faq-icon');
