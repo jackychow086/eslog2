@@ -30,12 +30,14 @@
         }
     </script>
     
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         * {
-            border-radius: 0px !important;
+            border-radius: 0px !important; /* Strict zero radius for Bauhaus precision */
         }
         body {
             background-color: #F8F9FA;
@@ -44,7 +46,21 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* Blueprint & Technical Grid Background Patterns */
+        /* Swiss Grid Divider Lines */
+        .grid-line-b { border-bottom: 1px solid #23262A; }
+        .grid-line-t { border-top: 1px solid #23262A; }
+        .grid-line-r { border-right: 1px solid #23262A; }
+        .grid-line-l { border-left: 1px solid #23262A; }
+        
+        .grid-light-b { border-bottom: 1px solid #E2E4E8; }
+        .grid-light-r { border-right: 1px solid #E2E4E8; }
+
+        /* Blueprint & Dark Technical Grid Overlay */
+        .bg-grid-pattern-dark {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
         .bg-grid-pattern {
             background-image: linear-gradient(to right, rgba(35, 38, 42, 0.04) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(35, 38, 42, 0.04) 1px, transparent 1px);
@@ -55,16 +71,7 @@
             background-size: 24px 24px;
         }
 
-        /* Swiss Grid Divider Lines */
-        .grid-line-b { border-bottom: 1px solid #23262A; }
-        .grid-line-t { border-top: 1px solid #23262A; }
-        .grid-line-r { border-right: 1px solid #23262A; }
-        .grid-line-l { border-left: 1px solid #23262A; }
-        
-        .grid-light-b { border-bottom: 1px solid #E2E4E8; }
-        .grid-light-r { border-right: 1px solid #E2E4E8; }
-
-        /* Mechanical Micro-interactions with Color Inheritance */
+        /* Mechanical Micro-interactions */
         .mech-hover {
             transition: transform 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
         }
@@ -77,7 +84,7 @@
             color: #10A0DE;
         }
         
-        /* Industrial Row Hover Mechanism */
+        /* Industrial List Item Hover */
         .dash-row {
             transition: all 0.15s ease-in-out;
         }
@@ -97,12 +104,13 @@
             transition: max-height 0.25s ease-in-out;
         }
 
+        /* Crosshair Target Symbol */
         .crosshair::before {
             content: '';
             margin-right: 0px;
         }
 
-        /* Smooth Reveal Animations */
+        /* Smooth Scroll Reveal Animations */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(28px);
@@ -137,7 +145,7 @@
     <nav class="w-full bg-warm-white sticky top-0 z-50 grid-line-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-stretch h-20">
-                <!-- Logo Block Left -->
+                <!-- Logo Block Left (Vector eSLOG SVG Brand Icon) -->
                 <div class="flex items-center grid-line-r pr-6 my-auto h-full flex-none">
                     <a href="#" class="flex items-center space-x-3 group">
                         <svg class="h-10 w-auto" viewBox="0 0 510 140" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,7 +168,7 @@
                     <a href="#about" data-i18n="nav_about" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Über uns</a>
                     <a href="#focus" data-i18n="nav_services" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Fokusbereiche</a>
                     <a href="#portfolio" data-i18n="nav_portfolio" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Portfolio</a>
-                    <a href="#ecosystem" data-i18n="nav_resources" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Ökosystem</a>
+                    <a href="#ecosystem" data-i18n="nav_resources" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Partner</a>
                     <a href="#faq" data-i18n="nav_faq" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">FAQ</a>
                     
                     <!-- Language Switcher Desktop -->
@@ -173,7 +181,7 @@
                     </div>
 
                     <a href="#contact" data-i18n="nav_contact" class="flex-none flex items-center px-6 bg-industrial-dark text-warm-white hover:bg-accent-blue transition-colors font-bold grid-line-l">
-                        Pitch einreichen <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        Kontakt <i class="fas fa-arrow-right ml-2 text-xs"></i>
                     </a>
                 </div>
 
@@ -191,44 +199,37 @@
             </div>
         </div>
 
+        <!-- Mobile Navigation Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden border-t border-industrial-dark bg-warm-white font-mono text-xs uppercase">
             <a href="#about" data-i18n="nav_about" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Über uns</a>
             <a href="#focus" data-i18n="nav_services" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Fokusbereiche</a>
             <a href="#portfolio" data-i18n="nav_portfolio" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Portfolio</a>
-            <a href="#ecosystem" data-i18n="nav_resources" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Ökosystem</a>
+            <a href="#ecosystem" data-i18n="nav_resources" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">Partner</a>
             <a href="#faq" data-i18n="nav_faq" class="block py-3 px-6 grid-line-b hover:bg-industrial-dark hover:text-warm-white">FAQ</a>
-            <a href="#contact" data-i18n="nav_contact" class="block py-4 px-6 bg-industrial-dark text-warm-white font-bold">Pitch einreichen</a>
+            <a href="#contact" data-i18n="nav_contact" class="block py-4 px-6 bg-industrial-dark text-warm-white font-bold">Kontakt</a>
         </div>
     </nav>
 
-    <section id="home" class="relative grid-line-b bg-grid-pattern overflow-hidden">
+    <section id="home" class="relative bg-industrial-dark text-warm-white grid-line-b bg-grid-pattern-dark overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="py-12 lg:py-20 flex flex-col justify-between">
+            <div class="py-16 lg:py-24 flex flex-col justify-between">
                 
+                <!-- Main Thesis Block -->
                 <div class="reveal-on-scroll">
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-industrial-dark" data-i18n="hero_title">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-warm-white" data-i18n="hero_title">
                         Finanzierung der<br>autonomen Lieferkette<br>
                         <span class="text-accent-blue">Präzision für KI & Robotik</span>
                     </h1>
-                    <p class="text-lg sm:text-xl text-industrial-dark/80 max-w-3xl leading-relaxed font-normal mb-10" data-i18n="hero_desc">
+                    <p class="text-lg sm:text-xl text-warm-white/80 max-w-3xl leading-relaxed font-normal" data-i18n="hero_desc">
                         eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.
                     </p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 pt-6 grid-line-t reveal-on-scroll delay-100">
-                    <a href="#contact" data-i18n="hero_btn_submit" class="px-8 py-4 bg-industrial-dark text-warm-white font-mono text-xs uppercase tracking-wider font-bold border border-industrial-dark hover:bg-accent-blue hover:border-accent-blue transition-colors flex items-center justify-center">
-                        Pitch-Vorschlag einreichen <i class="fas fa-arrow-right ml-3"></i>
-                    </a>
-                    <a href="#about" data-i18n="hero_btn_about" class="px-8 py-4 bg-transparent text-industrial-dark font-mono text-xs uppercase tracking-wider font-bold border border-industrial-dark hover:bg-industrial-dark hover:text-warm-white transition-colors flex items-center justify-center">
-                        Investitionsphilosophie
-                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section class="bg-industrial-dark text-warm-white grid-line-b">
+    <section class="bg-industrial-dark text-warm-white grid-line-b border-t border-warm-white/20">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-4 font-mono">
                 <div class="p-6 border-r border-b md:border-b-0 border-warm-white/20 reveal-left delay-100">
@@ -298,7 +299,7 @@
     <section id="focus" class="py-20 grid-line-b bg-warm-white bg-grid-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 reveal-on-scroll">
                 <div>
                     <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_focus">FOKUSBEREICHE</div>
                     <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="services_heading">
@@ -349,19 +350,16 @@
             
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
                 <div>
-                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_portfolio">PORTFOLIO</div>
                     <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="port_heading">
                         Investitions-Portfolio
                     </h2>
                 </div>
             </div>
 
-            <!-- Technical Spec Sheet Dossier: AROC Technologies GmbH -->
             <div class="bg-white border-2 border-industrial-dark p-8 sm:p-12 font-mono reveal-on-scroll">
                 
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-industrial-dark pb-6 mb-8 gap-4">
                     <div>
-                        <span class="text-xs text-accent-blue font-bold uppercase block mb-1">PORTFOLIO COMPANY DOSSIER</span>
                         <h3 class="text-3xl sm:text-4xl font-black font-sans uppercase tracking-tight text-industrial-dark" data-i18n="aroc_title">
                             AROC Technologies GmbH
                         </h3>
@@ -369,7 +367,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 font-sans">
-                    <!-- Column 1: Background -->
                     <div class="p-6 bg-warm-white border border-industrial-dark reveal-left delay-200">
                         <div class="font-mono text-xs text-industrial-dark font-bold uppercase border-b border-industrial-dark pb-2 mb-4 flex justify-between">
                             <span data-i18n="aroc_bg_title">Unternehmenshintergrund</span>
@@ -379,7 +376,6 @@
                         </p>
                     </div>
 
-                    <!-- Column 2: Strategic Synergy -->
                     <div class="p-6 bg-warm-white border border-industrial-dark reveal-right delay-300">
                         <div class="font-mono text-xs text-industrial-dark font-bold uppercase border-b border-industrial-dark pb-2 mb-4 flex justify-between">
                             <span data-i18n="aroc_synergy_title">Strategische Synergie & Empowerment</span>
@@ -400,9 +396,9 @@
             
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
                 <div>
-                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_ecosystem">ÖKOSYSTEM</div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_ecosystem">UNSERE PARTNER</div>
                     <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="res_heading">
-                        Strategische Ressourcen & Globale Präsenz
+                        Strategische Ressourcen
                     </h2>
                 </div>
             </div>
@@ -475,9 +471,8 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="mb-12 border-b border-industrial-dark pb-6 reveal-on-scroll">
-                <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_faq">FAQ</div>
                 <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="faq_heading">
-                    Häufig gestellte Fragen (FAQ)
+                    FAQ
                 </h2>
             </div>
 
@@ -533,7 +528,7 @@
                 
                 <div class="lg:col-span-5 flex flex-col justify-between reveal-left">
                     <div>
-                        <div class="font-mono text-xs uppercase tracking-widest text-accent-blue mb-4" data-i18n="tag_contact">PITCH EINREICHEN</div>
+                        <div class="font-mono text-xs uppercase tracking-widest text-accent-blue mb-4" data-i18n="tag_contact">KONTAKT</div>
                         <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-6 leading-tight" data-i18n="contact_heading">
                             Empowerung von Innovatoren, die die Zukunft gestalten
                         </h2>
@@ -598,7 +593,7 @@
                             <textarea id="message" rows="3" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm resize-none" data-i18n-placeholder="ph_msg" placeholder="Beschreiben Sie kurz Ihre Kerntechnologievorteile, Ihren Zielmarkt oder Ihren aktuellen Fundraising-Fortschritt..."></textarea>
                         </div>
                         <button type="submit" class="w-full bg-industrial-dark text-warm-white hover:bg-accent-blue font-mono text-xs uppercase font-bold py-4 px-6 transition-colors border border-industrial-dark" data-i18n="btn_submit">
-                            Pitch-Vorschlag einreichen
+                            Kontakt aufnehmen
                         </button>
                     </form>
                     
@@ -646,20 +641,20 @@
                 nav_about: "Über uns",
                 nav_services: "Fokusbereiche",
                 nav_portfolio: "Portfolio",
-                nav_resources: "Ökosystem",
+                nav_resources: "Partner",
                 nav_faq: "FAQ",
-                nav_contact: "Pitch einreichen",
+                nav_contact: "Kontakt",
 
                 tag_about: "ÜBER UNS",
                 tag_focus: "FOKUSBEREICHE",
                 tag_portfolio: "PORTFOLIO",
-                tag_ecosystem: "ÖKOSYSTEM",
+                tag_ecosystem: "UNSERE PARTNER",
                 tag_faq: "FAQ",
-                tag_contact: "PITCH EINREICHEN",
+                tag_contact: "KONTAKT",
 
                 hero_title: 'Finanzierung der<br>autonomen Lieferkette<br><span class="text-accent-blue">Präzision für KI & Robotik</span>',
                 hero_desc: "eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.",
-                hero_btn_submit: "Pitch-Vorschlag einreichen",
+                hero_btn_submit: "Kontakt aufnehmen",
                 hero_btn_about: "Investitionsphilosophie",
 
                 stat_1_lbl: "Strategische Hubs",
@@ -690,7 +685,7 @@
                 aroc_synergy_title: "Strategische Synergie & Empowerment",
                 aroc_synergy_desc: "Durch die Investition von eSLOG erhält AROC Zugang zu fortschrittlichen Komponenten-Lieferketten, skaliert seine intelligenten Automatisierungslösungen in der Intralogistik und beschleunigt die kommerzielle Marktdurchdringung in Europa und Asien.",
 
-                res_heading: "Strategische Ressourcen & Globale Präsenz",
+                res_heading: "Strategische Ressourcen",
                 res_galaxis_title: "GALAXIS",
                 res_galaxis_desc1: "In Deutschland gegründet, tief im chinesischen Markt verwurzelt.",
                 res_galaxis_desc2: "F&E-Zentren in Gleisdorf (Österreich) und Wuhan.",
@@ -702,7 +697,7 @@
                 res_jinwei_desc1: "Spezialisierte Roboterfertigungsanlage in Tianjin.",
                 res_jinwei_desc2: "Strategische Partnerschaft mit ChinaAE.",
 
-                faq_heading: "Häufig gestellte Fragen (FAQ)",
+                faq_heading: "FAQ",
                 faq1_q: "Auf welche Start-up-Phasen konzentriert sich eSLOG hauptsächlich?",
                 faq1_a: "Wir konzentrieren uns hauptsächlich auf Technologie-Start-ups von der Seed- bis zur Series-B-Phase. Solange Ihr Team über Kerntechnologien in KI-Vision, AMR/AGV-Robotik oder Lieferketten-Algorithmen zusammen mit aussichtsreichen kommerziellen Szenarien verfügt, freuen wir uns auf eine Evaluierung und Kontaktaufnahme.",
                 faq2_q: "Welche Branchenressourcen kann eSLOG neben Finanzierung bereitstellen?",
@@ -737,7 +732,7 @@
                 ph_deck: "https://drive.google.com/... oder DocSend Link",
                 lbl_msg: "Beschreiben Sie Ihre Technologievorteile & Ihren Vorschlag",
                 ph_msg: "Beschreiben Sie kurz Ihre Kerntechnologievorteile, Ihren Zielmarkt oder Ihren aktuellen Fundraising-Fortschritt...",
-                btn_submit: "Pitch-Vorschlag einreichen",
+                btn_submit: "Kontakt aufnehmen",
                 msg_submitting: "Wird eingereicht...",
                 msg_success: "Vielen Dank für Ihre Einreichung! Unser Investitionsteam wird diese umgehend prüfen und sich bei Ihnen melden.",
 
@@ -748,20 +743,20 @@
                 nav_about: "About Us",
                 nav_services: "Focus Areas",
                 nav_portfolio: "Portfolio",
-                nav_resources: "Ecosystem",
+                nav_resources: "Partners",
                 nav_faq: "FAQ",
-                nav_contact: "Submit Pitch",
+                nav_contact: "Contact Us",
 
                 tag_about: "ABOUT US",
                 tag_focus: "FOCUS AREAS",
                 tag_portfolio: "PORTFOLIO",
-                tag_ecosystem: "ECOSYSTEM",
+                tag_ecosystem: "OUR PARTNERS",
                 tag_faq: "FAQ",
-                tag_contact: "SUBMIT PITCH",
+                tag_contact: "CONTACT US",
 
                 hero_title: 'Financing the<br>autonomous supply chain<br><span class="text-accent-blue">Precision scaling for AI & Robotics</span>',
                 hero_desc: "eSLOG deploys venture capital into high-potential hard-tech innovators. We bridge capital with robust German industrial infrastructure to scale autonomous intralogistics and AI control.",
-                hero_btn_submit: "Submit Pitch Proposal",
+                hero_btn_submit: "Contact Us",
                 hero_btn_about: "Investment Philosophy",
 
                 stat_1_lbl: "Strategic Hubs",
@@ -792,7 +787,7 @@
                 aroc_synergy_title: "Strategic Synergy & Empowerment",
                 aroc_synergy_desc: "Through eSLOG's investment, AROC gains direct access to component supply chains, scales its automation systems into intralogistics scenarios, and accelerates commercial expansion across Europe and Asia.",
 
-                res_heading: "Strategic Resources & Global Presence",
+                res_heading: "Strategic Resources",
                 res_galaxis_title: "GALAXIS",
                 res_galaxis_desc1: "Founded in Germany, deeply rooted in the Asian logistics ecosystem.",
                 res_galaxis_desc2: "R&D centers in Gleisdorf (Austria) and Wuhan.",
@@ -804,7 +799,7 @@
                 res_jinwei_desc1: "Specialized robot assembly facility in Tianjin.",
                 res_jinwei_desc2: "Strategic partnership with ChinaAE.",
 
-                faq_heading: "Frequently Asked Questions (FAQ)",
+                faq_heading: "FAQ",
                 faq1_q: "What startup stages does eSLOG primarily focus on?",
                 faq1_a: "We focus on technology startups from Seed to Series B. If your team possesses core IP in AI vision, AMR/AGV robotics, or supply chain algorithms with verified commercial traction, we welcome your proposal.",
                 faq2_q: "What industry resources can eSLOG provide besides capital?",
@@ -813,7 +808,7 @@
                 faq3_a: "Our investment committee conducts an initial review within 3 to 7 business days. If aligned with our thesis, a project lead will contact you to arrange a technical evaluation.",
 
                 contact_heading: "Empowering Innovators Shaping the Autonomous Future",
-                contact_desc: "If your team has advanced logistics AI or robotics solutions and seeks capital and industrial scale, submit your proposal to our investment team.",
+                contact_desc: "If your team has advanced logistics AI or robotics solutions and seeks capital and industrial scale, welcome to contact eSLOG.",
                 contact_email_holder: "[ Email Address to be Added ]",
                 contact_addr_holder: "[ Office Address to be Added ]",
                 
@@ -839,7 +834,7 @@
                 ph_deck: "https://drive.google.com/... or DocSend link",
                 lbl_msg: "Describe Your Tech Advantages & Proposal",
                 ph_msg: "Briefly describe your core tech advantages, target market, or current fundraising progress...",
-                btn_submit: "Submit Pitch Proposal",
+                btn_submit: "Contact Us",
                 msg_submitting: "Submitting...",
                 msg_success: "Thank you for your submission. Our investment team will review it shortly.",
 
@@ -850,20 +845,20 @@
                 nav_about: "關於我們",
                 nav_services: "聚焦領域",
                 nav_portfolio: "投資組合",
-                nav_resources: "產業生態",
+                nav_resources: "合作夥伴",
                 nav_faq: "常見問題",
-                nav_contact: "提交提案",
+                nav_contact: "聯繫我們",
 
                 tag_about: "關於我們",
                 tag_focus: "聚焦領域",
                 tag_portfolio: "投資組合",
-                tag_ecosystem: "產業生態",
+                tag_ecosystem: "合作夥伴",
                 tag_faq: "常見問題",
-                tag_contact: "提交提案",
+                tag_contact: "聯繫我們",
 
                 hero_title: '自主供應鏈資本與賦能<br><span class="text-accent-blue">精準驅動 AI 與機器人規模化</span>',
                 hero_desc: "eSLOG 專注投資全球深硬科技創新者。我們將風險資本與德國工業基礎設施相結合，加速自主內物流與 AI 控制技術規模化商業落地。",
-                hero_btn_submit: "提交 Pitch 提案",
+                hero_btn_submit: "聯繫我們",
                 hero_btn_about: "投資哲學與理念",
 
                 stat_1_lbl: "全球戰略樞紐",
@@ -894,7 +889,7 @@
                 aroc_synergy_title: "戰略協同與賦能",
                 aroc_synergy_desc: "透過 eSLOG 的投資，AROC 得以獲取關鍵零組件供應鏈資源，將其智慧自動化方案擴展至內部物流場景，並加速在歐洲與亞洲市場的商業滲透。",
 
-                res_heading: "戰略資源與全球佈局",
+                res_heading: "戰略資源",
                 res_galaxis_title: "GALAXIS",
                 res_galaxis_desc1: "創立於德國，深耕亞洲物流產業生態系。",
                 res_galaxis_desc2: "於奧地利 Gleisdorf 與中國武漢設有頂尖研發中心。",
@@ -906,7 +901,7 @@
                 res_jinwei_desc1: "位於天津的專業機器人組裝基地。",
                 res_jinwei_desc2: "與 ChinaAE 建立深厚戰略合作夥伴關係。",
 
-                faq_heading: "常見問題 (FAQ)",
+                faq_heading: "FAQ",
                 faq1_q: "eSLOG 主要關注哪些階段的初創企業？",
                 faq1_a: "我們主要關注從種子輪 (Seed) 到 B 輪 (Series B) 的科技初創企業。只要您的團隊在 AI 視覺、AMR/AGV 機器人或供應鏈演算法方面擁有專利技術與商業驗證，我們都非常期待進行評估。",
                 faq2_q: "除了資金外，eSLOG 還能提供哪些產業資源？",
@@ -915,7 +910,7 @@
                 faq3_a: "我們的投資委員會將於收到提案後 3 至 7 個工作天內完成初審。若符合我們的投資哲學，專案負責人將主動與您聯繫。",
 
                 contact_heading: "賦能塑造未來的創新者",
-                contact_desc: "如果您的團隊擁有前沿物流 AI 技術或機器人解決方案，並正在尋求資本與產業規模化資源，歡迎聯繫 eSLOG 投資團隊。",
+                contact_desc: "如果您的團隊擁有前沿物流 AI 技術或機器人解決方案，並正在尋求資本與產業規模化資源，歡迎聯繫 eSLOG。",
                 contact_email_holder: "[ 待新增 Email 地址 ]",
                 contact_addr_holder: "[ 待新增辦公室地址 ]",
                 
@@ -941,7 +936,7 @@
                 ph_deck: "https://drive.google.com/... 或 DocSend 連結",
                 lbl_msg: "簡述您的技術優勢與提案",
                 ph_msg: "請簡要說明您的核心技術優勢、目標市場或目前的募資進度...",
-                btn_submit: "提交 Pitch 提案",
+                btn_submit: "聯繫我們",
                 msg_submitting: "提交中...",
                 msg_success: "感謝您的提交！我們的投資團隊將儘快進行審閱與聯繫。",
 
@@ -949,140 +944,122 @@
             }
         };
 
-        let currentLang = localStorage.getItem('eslog_lang') || 'de';
+        let currentLang = 'de';
 
         function changeLanguage(lang) {
+            if (!translations[lang]) return;
             currentLang = lang;
-            localStorage.setItem('eslog_lang', lang);
-            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
 
-            const languages = ['de', 'en', 'zh'];
-            languages.forEach(l => {
-                const btn = document.getElementById(`lang-${l}`);
+            // Update active state styling for language switcher buttons
+            ['de', 'en', 'zh'].forEach(l => {
+                const btnDesktop = document.getElementById(`lang-${l}`);
                 const btnMobile = document.getElementById(`lang-${l}-mobile`);
                 
-                if (btn) {
-                    if (l === lang) {
-                        btn.className = "px-2.5 py-1.5 bg-accent-blue text-white font-bold transition-colors";
-                    } else {
-                        btn.className = "px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors";
-                    }
-                }
-                if (btnMobile) {
-                    if (l === lang) {
-                        btnMobile.className = "px-2 py-1 bg-accent-blue text-white font-bold";
-                    } else {
-                        btnMobile.className = "px-2 py-1 text-industrial-dark border-l border-industrial-dark";
-                    }
+                if (l === lang) {
+                    if (btnDesktop) btnDesktop.className = 'px-2.5 py-1.5 bg-accent-blue text-white font-bold transition-colors';
+                    if (btnMobile) btnMobile.className = 'px-2 py-1 bg-accent-blue text-white font-bold';
+                } else {
+                    if (btnDesktop) btnDesktop.className = 'px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors';
+                    if (btnMobile) btnMobile.className = 'px-2 py-1 text-industrial-dark border-l border-industrial-dark';
                 }
             });
 
+            // Update text elements with data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
+                if (translations[lang][key] !== undefined) {
                     el.innerHTML = translations[lang][key];
                 }
             });
 
+            // Update input placeholders with data-i18n-placeholder
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
+                if (translations[lang][key] !== undefined) {
                     el.placeholder = translations[lang][key];
                 }
             });
+        }
 
-            if (translations[lang] && translations[lang]['page_title']) {
-                document.title = translations[lang]['page_title'];
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                if (icon) icon.textContent = '[+]';
+            } else {
+                // Close other open FAQ items for accordion effect
+                document.querySelectorAll('.faq-content.open').forEach(item => {
+                    item.classList.remove('open');
+                    const parentBtnIcon = item.previousElementSibling ? item.previousElementSibling.querySelector('.faq-icon') : null;
+                    if (parentBtnIcon) parentBtnIcon.textContent = '[+]';
+                });
+                
+                content.classList.add('open');
+                if (icon) icon.textContent = '[-]';
             }
         }
 
-        // Intersection Observer for Scroll Reveal Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px 0px -40px 0px',
-            threshold: 0.08
-        };
+        function showMessage() {
+            const successMsg = document.getElementById('success-message');
+            if (successMsg) {
+                successMsg.classList.remove('hidden');
+            }
+        }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile navigation toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            changeLanguage(currentLang);
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Scroll reveal animation observer
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                    }
+                });
+            }, { threshold: 0.12 });
 
             document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right').forEach(el => {
-                observer.observe(el);
+                revealObserver.observe(el);
             });
-        });
 
-        // Back to top Floating Button Trigger
-        const backToTopBtn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            // Back to top floating button logic
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    }
+                });
+
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
             }
         });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // FAQ Accordion Toggle
-        function toggleFaq(button) {
-            const answer = button.nextElementSibling;
-            const icon = button.querySelector('.faq-icon');
-            const isOpen = answer.classList.contains('open');
-
-            document.querySelectorAll('.faq-content').forEach(el => el.classList.remove('open'));
-            document.querySelectorAll('.faq-icon').forEach(i => i.innerText = '[+]');
-
-            if (!isOpen) {
-                answer.classList.add('open');
-                icon.innerText = '[-]';
-            }
-        }
-
-        // Form Submission Handler
-        function showMessage() {
-            const form = document.getElementById('contact-form');
-            const msg = document.getElementById('success-message');
-            const submitBtn = form.querySelector('button[type="submit"]');
-            
-            const submittingText = translations[currentLang]['msg_submitting'];
-            const defaultText = translations[currentLang]['btn_submit'];
-
-            submitBtn.innerHTML = submittingText;
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                form.reset();
-                submitBtn.innerHTML = defaultText;
-                submitBtn.disabled = false;
-                
-                msg.classList.remove('hidden');
-                setTimeout(() => {
-                    msg.classList.add('hidden');
-                }, 5000);
-            }, 1200);
-        }
     </script>
 </body>
 </html>
