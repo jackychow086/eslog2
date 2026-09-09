@@ -171,12 +171,11 @@
                     <a href="#ecosystem" data-i18n="nav_resources" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">Partner</a>
                     <a href="#faq" data-i18n="nav_faq" class="flex-1 flex items-center justify-center px-4 grid-line-l hover:bg-industrial-dark hover:text-warm-white transition-colors text-center">FAQ</a>
                     
-                    <!-- Language Switcher Desktop -->
+                    <!-- Language Switcher Desktop (DE & EN) -->
                     <div class="flex items-center grid-line-l px-4 flex-none">
                         <div class="flex border border-industrial-dark text-xs font-mono">
                             <button id="lang-de" onclick="changeLanguage('de')" class="px-2.5 py-1.5 bg-accent-blue text-white font-bold transition-colors">DE</button>
                             <button id="lang-en" onclick="changeLanguage('en')" class="px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors">EN</button>
-                            <button id="lang-zh" onclick="changeLanguage('zh')" class="px-2.5 py-1.5 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white border-l border-industrial-dark transition-colors">繁中</button>
                         </div>
                     </div>
 
@@ -190,7 +189,6 @@
                     <div class="flex border border-industrial-dark text-xs font-mono">
                         <button id="lang-de-mobile" onclick="changeLanguage('de')" class="px-2 py-1 bg-accent-blue text-white font-bold">DE</button>
                         <button id="lang-en-mobile" onclick="changeLanguage('en')" class="px-2 py-1 text-industrial-dark border-l border-industrial-dark">EN</button>
-                        <button id="lang-zh-mobile" onclick="changeLanguage('zh')" class="px-2 py-1 text-industrial-dark border-l border-industrial-dark">繁中</button>
                     </div>
                     <button id="mobile-menu-btn" class="p-3 text-industrial-dark hover:bg-industrial-dark hover:text-warm-white transition-colors">
                         <i class="fas fa-bars text-xl"></i>
@@ -299,7 +297,7 @@
     <section id="focus" class="py-20 grid-line-b bg-warm-white bg-grid-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 grid-line-b pb-6 reveal-on-scroll">
                 <div>
                     <div class="font-mono text-xs uppercase tracking-widest text-industrial-muted mb-2 crosshair" data-i18n="tag_focus">FOKUSBEREICHE</div>
                     <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-industrial-dark" data-i18n="services_heading">
@@ -533,7 +531,7 @@
                             Empowerung von Innovatoren, die die Zukunft gestalten
                         </h2>
                         <p class="text-sm text-warm-white/70 leading-relaxed font-sans mb-8" data-i18n="contact_desc">
-                            Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, das eSLOG-Investitionsteam zu kontaktieren.
+                            Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, eSLOG zu kontaktieren.
                         </p>
                     </div>
 
@@ -706,7 +704,7 @@
                 faq3_a: "Unsere Investitionsgruppe wird innerhalb von 3 bis 7 Werktagen nach Eingang Ihres Vorschlags eine erste Bewertung abschließen. Wenn Ihr Vorschlag mit unserer Investitionsstrategie übereinstimmt, wird sich ein Projektverantwortlicher proaktiv mit Ihnen in Verbindung setzen und ein anschließendes Online- oder persönliches Treffen vereinbaren.",
 
                 contact_heading: "Empowerung von Innovatoren, die die Zukunft gestalten",
-                contact_desc: "Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, das eSLOG-Investitionsteam zu kontaktieren.",
+                contact_desc: "Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, eSLOG zu kontaktieren.",
                 contact_email_holder: "[ E-Mail-Adresse wird hinzugefügt ]",
                 contact_addr_holder: "[ Büroadresse wird hinzugefügt ]",
                 
@@ -839,108 +837,6 @@
                 msg_success: "Thank you for your submission. Our investment team will review it shortly.",
 
                 footer_copyright: "© 2026 eSLOG. All rights reserved."
-            },
-            zh: {
-                page_title: "eSLOG | 自主供應鏈創投機構",
-                nav_about: "關於我們",
-                nav_services: "聚焦領域",
-                nav_portfolio: "投資組合",
-                nav_resources: "合作夥伴",
-                nav_faq: "常見問題",
-                nav_contact: "聯繫我們",
-
-                tag_about: "關於我們",
-                tag_focus: "聚焦領域",
-                tag_portfolio: "投資組合",
-                tag_ecosystem: "合作夥伴",
-                tag_faq: "常見問題",
-                tag_contact: "聯繫我們",
-
-                hero_title: '自主供應鏈資本與賦能<br><span class="text-accent-blue">精準驅動 AI 與機器人規模化</span>',
-                hero_desc: "eSLOG 專注投資全球深硬科技創新者。我們將風險資本與德國工業基礎設施相結合，加速自主內物流與 AI 控制技術規模化商業落地。",
-                hero_btn_submit: "聯繫我們",
-                hero_btn_about: "投資哲學與理念",
-
-                stat_1_lbl: "全球戰略樞紐",
-                stat_2_lbl: "100% 聚焦物流與 AI",
-                stat_3_lbl: "供應鏈規模化賦能",
-                stat_4_lbl: "投資階段",
-
-                about_heading: "拓寬自主物流的投資邊界",
-                about_p1: "人工智慧與機器人技術正在重塑物流。我們的投資決策完全建立在技術驗證、商業可擴展性以及無人化內物流的實質 ROI 數據之上。",
-                about_p2: "超越風險資本本身，我們為被投企業提供直接進入歐洲測試場景、零組件供應鏈與自動化製造樞紐的對接管道。",
-                about_f1_title: "前沿核心技術驅動",
-                about_f1_desc: "專注於 AI 視覺、自主導航 (SLAM) 與機器人手臂操作技術的實用商業化。",
-                about_f2_title: "端到端解決方案",
-                about_f2_desc: "無縫融入企業級供應鏈，大幅降低整體營運成本。",
-
-                services_heading: "高成長物流科技",
-                svc1_title: "AI 倉儲與自動化",
-                svc1_desc: "自主移動機器人 (AMR)、無人搬運車 (AGV) 及 AI 分揀技術，打造現代無人倉儲基礎設施。",
-                svc2_title: "供應鏈演算法與 SaaS",
-                svc2_desc: "運用機器學習進行即時路徑優化、需求預測與自動化庫存管理的 SaaS 平台。",
-                svc3_title: "最後一公里創新",
-                svc3_desc: "自動駕駛送貨車、貨運無人機與智慧微型倉儲，優化最後一公里單元經濟。",
-
-                port_heading: "投資組合",
-                aroc_title: "AROC Technologies GmbH",
-                aroc_bg_title: "企業背景",
-                aroc_bg_desc: "AROC Technologies GmbH 總部位於德國巴伐利亞州 Großwallstadt，是一家專注於研發、生產與營運客制化多用途工業機器人，並為零售與批發提供數位化流程優化方案的高科技企業。",
-                aroc_synergy_title: "戰略協同與賦能",
-                aroc_synergy_desc: "透過 eSLOG 的投資，AROC 得以獲取關鍵零組件供應鏈資源，將其智慧自動化方案擴展至內部物流場景，並加速在歐洲與亞洲市場的商業滲透。",
-
-                res_heading: "戰略資源",
-                res_galaxis_title: "GALAXIS",
-                res_galaxis_desc1: "創立於德國，深耕亞洲物流產業生態系。",
-                res_galaxis_desc2: "於奧地利 Gleisdorf 與中國武漢設有頂尖研發中心。",
-                res_galaxis_desc3: "企業營運總部設於上海。",
-                res_galaxis_desc4: "於無錫及嘉興設有大型自動化製造基地。",
-                res_coop_desc1: "營運辦公室設於上海；COOP 中國總部位於香港。",
-                res_coop_desc2: "德國頂級品牌 Räder-Vogel 獨家合作夥伴。",
-                res_jinwei_title: "Jinwei",
-                res_jinwei_desc1: "位於天津的專業機器人組裝基地。",
-                res_jinwei_desc2: "與 ChinaAE 建立深厚戰略合作夥伴關係。",
-
-                faq_heading: "FAQ",
-                faq1_q: "eSLOG 主要關注哪些階段的初創企業？",
-                faq1_a: "我們主要關注從種子輪 (Seed) 到 B 輪 (Series B) 的科技初創企業。只要您的團隊在 AI 視覺、AMR/AGV 機器人或供應鏈演算法方面擁有專利技術與商業驗證，我們都非常期待進行評估。",
-                faq2_q: "除了資金外，eSLOG 還能提供哪些產業資源？",
-                faq2_a: "我們匯聚世界級研發中心、自動化製造樞紐及跨境供應鏈網絡。被投企業可直接在真實倉儲場景中進行測試驗證，大幅加速技術落地。",
-                faq3_q: "提交提案後，通常需要多久收到回覆？",
-                faq3_a: "我們的投資委員會將於收到提案後 3 至 7 個工作天內完成初審。若符合我們的投資哲學，專案負責人將主動與您聯繫。",
-
-                contact_heading: "賦能塑造未來的創新者",
-                contact_desc: "如果您的團隊擁有前沿物流 AI 技術或機器人解決方案，並正在尋求資本與產業規模化資源，歡迎聯繫 eSLOG。",
-                contact_email_holder: "[ 待新增 Email 地址 ]",
-                contact_addr_holder: "[ 待新增辦公室地址 ]",
-                
-                lbl_name: "聯絡人姓名",
-                ph_name: "張小明",
-                lbl_phone: "電話號碼",
-                ph_phone: "+886 912 345 678",
-                lbl_email: "公司 Email",
-                ph_email: "your@company.com",
-                lbl_stage: "目前募資階段",
-                opt_stage_1: "天使輪 / 種子輪",
-                opt_stage_2: "Pre-Series A",
-                opt_stage_3: "A 輪",
-                opt_stage_4: "B 輪及以上",
-                opt_stage_5: "其他合作形式",
-                lbl_interest: "核心業務 / 技術領域",
-                opt_int_1: "AI 倉儲與機器人 (AMR/AGV)",
-                opt_int_2: "供應鏈演算法 (SaaS)",
-                opt_int_3: "最後一公里創新",
-                opt_int_4: "其他科技與硬體創新",
-                lbl_deck: "Pitch Deck 連結",
-                lbl_deck_sub: "(選填)",
-                ph_deck: "https://drive.google.com/... 或 DocSend 連結",
-                lbl_msg: "簡述您的技術優勢與提案",
-                ph_msg: "請簡要說明您的核心技術優勢、目標市場或目前的募資進度...",
-                btn_submit: "聯繫我們",
-                msg_submitting: "提交中...",
-                msg_success: "感謝您的提交！我們的投資團隊將儘快進行審閱與聯繫。",
-
-                footer_copyright: "© 2026 eSLOG. 保留所有權利。"
             }
         };
 
@@ -950,8 +846,8 @@
             if (!translations[lang]) return;
             currentLang = lang;
 
-            // Update active state styling for language switcher buttons
-            ['de', 'en', 'zh'].forEach(l => {
+            // Update active state styling for language switcher buttons (DE and EN only)
+            ['de', 'en'].forEach(l => {
                 const btnDesktop = document.getElementById(`lang-${l}`);
                 const btnMobile = document.getElementById(`lang-${l}-mobile`);
                 
