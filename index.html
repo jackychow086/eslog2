@@ -149,7 +149,7 @@
                 <div class="flex items-center grid-line-r pr-6 my-auto h-full flex-none">
                     <a href="#" class="flex items-center space-x-3 group">
                        <img src="eSLOG.png" alt="eSLOG Logo" class="h-10 w-auto">
-                        </a>
+                    </a>
                 </div>
 
                 <!-- Desktop Navigation Menu -->
@@ -198,40 +198,40 @@
     </nav>
 
     <section id="home" class="relative bg-industrial-dark text-warm-white grid-line-b bg-grid-pattern-dark overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Main Thesis Block (Left Column) -->
-            <div class="lg:col-span-7 reveal-left">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-warm-white" data-i18n="hero_title">
-                    Finanzierung der<br>autonomen Lieferkette<br>
-                    <span class="text-accent-blue">Präzision für KI & Robotik</span>
-                </h1>
-                <p class="text-lg text-warm-white/80 leading-relaxed font-normal" data-i18n="hero_desc">
-                    eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.
-                </p>
-            </div>
-
-            <!-- Hero Image Block (Right Column) -->
-            <div class="lg:col-span-5 reveal-right delay-200 flex justify-center items-center">
-                <div class="relative w-full aspect-video flex items-center justify-center group">
-                    
-                    <!-- Ambient Blue Glow -->
-                    <div class="absolute inset-0 bg-accent-blue/20 blur-3xl rounded-full pointer-events-none"></div>
-
-                    <!-- Feathered Masked Image Container -->
-                    <div class="relative w-full h-full overflow-hidden">
-                        <img src="renderingindustry.jpg" alt="Autonomous Supply Chain & AI Robotics" 
-                             class="w-full h-full object-cover saturate-50 opacity-80 contrast-125 mix-blend-lighten group-hover:saturate-100 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                             style="-webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 75%); mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 75%);">
-                    </div>
-
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Main Thesis Block (Left Column) -->
+                <div class="lg:col-span-7 reveal-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-warm-white" data-i18n="hero_title">
+                        Finanzierung der<br>autonomen Lieferkette<br>
+                        <span class="text-accent-blue">Präzision für KI & Robotik</span>
+                    </h1>
+                    <p class="text-lg text-warm-white/80 leading-relaxed font-normal" data-i18n="hero_desc">
+                        eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.
+                    </p>
                 </div>
-            </div>
 
+                <!-- Hero Image Block (Right Column) -->
+                <div class="lg:col-span-5 reveal-right delay-200 flex justify-center items-center">
+                    <div class="relative w-full aspect-video flex items-center justify-center group">
+                        
+                        <!-- Ambient Blue Glow -->
+                        <div class="absolute inset-0 bg-accent-blue/20 blur-3xl rounded-full pointer-events-none"></div>
+
+                        <!-- Feathered Masked Image Container -->
+                        <div class="relative w-full h-full overflow-hidden">
+                            <img src="renderingindustry.jpg" alt="Autonomous Supply Chain & AI Robotics" 
+                                 class="w-full h-full object-cover saturate-50 opacity-80 contrast-125 mix-blend-lighten group-hover:saturate-100 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                 style="-webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 75%); mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 75%);">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="bg-industrial-dark text-warm-white grid-line-b border-t border-warm-white/20">
         <div class="max-w-7xl mx-auto">
@@ -533,27 +533,31 @@
                     </div>
                 </div>
 
-                <!-- Form Block -->
+                <!-- Form Block connected to Formspree -->
                 <div class="lg:col-span-7 bg-warm-white text-industrial-dark p-8 border border-industrial-dark reveal-right delay-200">
-                    <form id="contact-form" onsubmit="event.preventDefault(); showMessage();">
+                    <!-- 
+                        NOTE: Replace YOUR_FORMSPREE_ID with your actual Formspree endpoint ID (e.g. https://formspree.io/f/xbjnqkyw)
+                        Formspree will automatically forward submissions to info@es-log.de
+                    -->
+                    <form id="contact-form" action="https://formspree.io/f/mljeyzdk" method="POST" onsubmit="handleFormSubmit(event)">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label for="name" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_name">Name der Kontaktperson</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_name" placeholder="Max Mustermann" required>
+                                <input type="text" id="name" name="Name" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_name" placeholder="Max Mustermann" required>
                             </div>
                             <div>
                                 <label for="phone" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_phone">Telefonnummer</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_phone" placeholder="+49 123 456789" required>
+                                <input type="tel" id="phone" name="Phone" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_phone" placeholder="+49 123 456789" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label for="email" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_email">Unternehmens-E-Mail</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_email" placeholder="ihre@firma.com" required>
+                                <input type="email" id="email" name="Email" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_email" placeholder="ihre@firma.com" required>
                             </div>
                             <div>
                                 <label for="stage" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_stage">Aktuelle Finanzierungsphase</label>
-                                <select id="stage" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm">
+                                <select id="stage" name="Fundraising_Stage" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm">
                                     <option data-i18n="opt_stage_1">Angel / Seed-Runde</option>
                                     <option data-i18n="opt_stage_2">Pre-Series A</option>
                                     <option data-i18n="opt_stage_3">Series A</option>
@@ -564,7 +568,7 @@
                         </div>
                         <div class="mb-6">
                             <label for="interest" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_interest">Kerngeschäfts- / Technologiefeld</label>
-                            <select id="interest" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm">
+                            <select id="interest" name="Technology_Field" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm">
                                 <option data-i18n="opt_int_1">KI-Lagerhaltung & Robotik (AMR/AGV)</option>
                                 <option data-i18n="opt_int_2">Lieferketten-Algorithmen (SaaS)</option>
                                 <option data-i18n="opt_int_3">Innovationen auf der Letzten Meile</option>
@@ -575,13 +579,13 @@
                             <label for="deck" class="block font-mono text-xs uppercase font-bold mb-2">
                                 <span data-i18n="lbl_deck">Pitch Deck URL</span> <span class="text-industrial-muted font-normal" data-i18n="lbl_deck_sub">(Optional)</span>
                             </label>
-                            <input type="url" id="deck" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_deck" placeholder="https://drive.google.com/... oder DocSend Link">
+                            <input type="url" id="deck" name="Pitch_Deck_URL" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm" data-i18n-placeholder="ph_deck" placeholder="https://drive.google.com/... oder DocSend Link">
                         </div>
                         <div class="mb-6">
                             <label for="message" class="block font-mono text-xs uppercase font-bold mb-2" data-i18n="lbl_msg">Beschreiben Sie Ihre Technologievorteile & Ihren Vorschlag</label>
-                            <textarea id="message" rows="3" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm resize-none" data-i18n-placeholder="ph_msg" placeholder="Beschreiben Sie kurz Ihre Kerntechnologievorteile, Ihren Zielmarkt oder Ihren aktuellen Fundraising-Fortschritt..."></textarea>
+                            <textarea id="message" name="Message" rows="3" class="w-full px-4 py-3 bg-white border border-industrial-dark focus:border-accent-blue outline-none font-sans text-sm resize-none" data-i18n-placeholder="ph_msg" placeholder="Beschreiben Sie kurz Ihre Kerntechnologievorteile, Ihren Zielmarkt oder Ihren aktuellen Fundraising-Fortschritt..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-industrial-dark text-warm-white hover:bg-accent-blue font-mono text-xs uppercase font-bold py-4 px-6 transition-colors border border-industrial-dark" data-i18n="btn_submit">
+                        <button type="submit" id="submit-btn" class="w-full bg-industrial-dark text-warm-white hover:bg-accent-blue font-mono text-xs uppercase font-bold py-4 px-6 transition-colors border border-industrial-dark" data-i18n="btn_submit">
                             Kontakt aufnehmen
                         </button>
                     </form>
@@ -685,8 +689,8 @@
 
                 contact_heading: "Empowerung von Innovatoren, die die Zukunft gestalten",
                 contact_desc: "Wenn Ihr Team über fortschrittliche Logistik-KI-Technologie oder Robotiklösungen verfügt und Kapital sowie strategische Branchenressourcen sucht, laden wir Sie ein, eSLOG zu kontaktieren.",
-                contact_email_holder: "[ E-Mail-Adresse wird hinzugefügt ]",
-                contact_addr_holder: "[ Büroadresse wird hinzugefügt ]",
+                contact_email_holder: "info@es-log.de",
+                contact_addr_holder: "Böttgerstraße 12, 20148 Hamburg",
                 
                 lbl_name: "Name der Kontaktperson",
                 ph_name: "Max Mustermann",
@@ -857,6 +861,41 @@
             });
         }
 
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('success-message');
+
+            const origText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = translations[currentLang].msg_submitting || (currentLang === 'de' ? 'Wird eingereicht...' : 'Submitting...');
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { 
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    if (successMsg) successMsg.classList.remove('hidden');
+                } else {
+                    alert(currentLang === 'de' ? "Fehler beim Senden. Bitte überprüfen Sie Ihre Eingaben." : "Submission error. Please check your inputs.");
+                }
+            } catch (err) {
+                console.error("Formspree submission error:", err);
+                alert(currentLang === 'de' ? "Netzwerkfehler. Bitte später erneut versuchen." : "Network error. Please try again later.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = origText;
+            }
+        }
+
         function toggleFaq(button) {
             const content = button.nextElementSibling;
             const icon = button.querySelector('.faq-icon');
@@ -874,13 +913,6 @@
                 
                 content.classList.add('open');
                 if (icon) icon.textContent = '[-]';
-            }
-        }
-
-        function showMessage() {
-            const successMsg = document.getElementById('success-message');
-            if (successMsg) {
-                successMsg.classList.remove('hidden');
             }
         }
 
