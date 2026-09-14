@@ -199,17 +199,24 @@
 
     <section id="home" class="relative bg-industrial-dark text-warm-white grid-line-b bg-grid-pattern-dark overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="py-16 lg:py-24 flex flex-col justify-between">
+            <div class="py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Main Thesis Block -->
-                <div class="reveal-on-scroll">
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-warm-white" data-i18n="hero_title">
+                <!-- Main Thesis Block (Left Column) -->
+                <div class="lg:col-span-7 reveal-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.95] mb-8 text-warm-white" data-i18n="hero_title">
                         Finanzierung der<br>autonomen Lieferkette<br>
                         <span class="text-accent-blue">Präzision für KI & Robotik</span>
                     </h1>
-                    <p class="text-lg sm:text-xl text-warm-white/80 max-w-3xl leading-relaxed font-normal" data-i18n="hero_desc">
+                    <p class="text-lg text-warm-white/80 leading-relaxed font-normal" data-i18n="hero_desc">
                         eSLOG investiert risikoorientiert in globale Hard-Tech-Innovatoren. Wir verbinden Kapital mit robuster deutscher Industrie-Infrastruktur zur Skalierung von autonomer Intralogistik und KI-Steuerung.
                     </p>
+                </div>
+
+                <!-- Hero Image Block (Right Column) -->
+                <div class="lg:col-span-5 reveal-right delay-200">
+                    <div class="p-2 border border-warm-white/20 bg-industrial-dark">
+                        <img src="fingers-opening-future.jpg" alt="Autonomous Supply Chain & AI Robotics" class="w-full h-auto object-cover border border-warm-white/10">
+                    </div>
                 </div>
 
             </div>
